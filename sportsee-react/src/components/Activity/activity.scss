@@ -1,0 +1,36 @@
+@import '../../styles/index.scss';
+
+.activity {
+    width: 57vw;
+    height: 320px;
+    background: $grey-color;
+    padding: 26px 26px 26px 32px;
+    margin-bottom: 28px;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 64px;
+    }
+    &__header-legend {
+        color: $light-grey;
+        column-gap: 32px;
+        display: flex;
+    }
+    &__header-legend-container {
+        display: flex;
+        column-gap: 12px;
+        align-items: center;
+    }
+    &__header-grey-circle {
+        background: $dark-grey;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+    }
+    &__header-red-circle {
+        background: #E60000;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+    }
+}

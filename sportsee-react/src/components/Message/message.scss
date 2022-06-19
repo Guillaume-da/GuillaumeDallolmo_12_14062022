@@ -1,0 +1,19 @@
+@import '../../styles/index.scss';
+
+.main {
+    padding: 172px 70px 72px 210px;
+    height: 100%;
+    width: 100%;
+    &__title {
+        font-size: 48px;
+        line-height: 24px;
+    }
+    &__title--red {
+        font-size: 48px;
+        color: $red-color;
+        line-height: 24px;
+    }
+    &__subtitle {
+        margin-top: 48px;
+    }
+}
