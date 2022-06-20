@@ -2,14 +2,15 @@
 
 .activity {
     width: 57vw;
-    height: 320px;
+    height: 260px;
     background: $grey-color;
     padding: 26px 26px 26px 32px;
     margin-bottom: 28px;
     &__header {
         display: flex;
+        font-size: 15px;
         justify-content: space-between;
-        margin-bottom: 64px;
+        margin-bottom: 45px;
     }
     &__header-legend {
         color: $light-grey;

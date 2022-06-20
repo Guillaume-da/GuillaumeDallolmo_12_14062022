@@ -5,7 +5,9 @@ import React from 'react'
 
 const Dashboard = () => {
     return (
-       <p>Homepage</p>
+        <main className="main">
+            <p>Homepage</p>
+        </main>
     );
 };
 

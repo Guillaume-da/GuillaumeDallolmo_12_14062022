@@ -12,7 +12,6 @@ const Activity = (props) => {
 
     useEffect(() => {
         const getUserData = async () => {
-            console.log(loading)
             try {
               const userData = await getUserActivity(id)
               setData(userData)
@@ -50,7 +49,8 @@ const Activity = (props) => {
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart
                     width="100%"
-                    height="100%"
+                    barGap={8}
+                    height="75%"
                     data={data.data.sessions}
                     margin={{
                         top: 5,
@@ -59,17 +59,45 @@ const Activity = (props) => {
                         bottom: 5,
                     }}
                     >
-                        <CartesianGrid
-                        vertical={false}
-                        strokeDasharray="1"
-                        style={{ padding: '0', margin: '0' }}
-                        />
-                        <XAxis domain={['minData', 'maxData']} />
-                        <YAxis orientation="right" tickCount="3" axisLine={false}/>
-                        <Tooltip />
-                        {/* <Legend fill='transparent'/> */}
-                        <Bar dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]}/>
-                        <Bar dataKey="calories" fill="#E60000" barSize={7} radius={[50, 50, 0, 0]}/>
+                    <CartesianGrid
+                    vertical={false}
+                    strokeDasharray="1"
+                    style={{ padding: '0', margin: '0' }}
+                    />
+                    <XAxis 
+                    domain={['minData', 'maxData']} 
+                    tickMargin={15}
+                    tickLine={false}
+                    scale="point"
+                    padding={{ left: 12, right: 12 }}
+                    axisLine={{ stroke: '#DEDEDE' }}
+                    tick={{ fill: '#9B9EAC', fontSize: '14px' }}
+                    tickFormatter={(number) => number + 1}
+                    
+                    />
+                    <YAxis 
+                    orientation="right" 
+                    tickCount="3" 
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: '#9B9EAC', fontSize: '14px' }}
+                    style={{ marginLeft: '20px' }}
+                    dx={45}
+                    />
+                    <Tooltip />
+                    {/* <Legend /> */}
+                    <Bar 
+                    dataKey="kilogram" 
+                    fill="#282D30" 
+                    barSize={7.5} 
+                    radius={[50, 50, 0, 0]}
+                    />
+                    <Bar 
+                    dataKey="calories" 
+                    fill="#E60000" 
+                    barSize={7.5} 
+                    radius={[50, 50, 0, 0]}
+                    />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

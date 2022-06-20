@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import ScoreContainer from '../components/ScoreContainer'
+import GeneralInformations from '../components/GeneralInformations'
 import Activity from '../components/Activity'
 import { getUserInfo } from '../services/Api';
+import Performance from '../components/Performance'
 
 const Dashboard = () => {
     const slug = useParams();
@@ -16,7 +17,6 @@ const Dashboard = () => {
 
     useEffect(() => {
         const getUserData = async () => {
-            console.log(loading)
             try {
               const userData = await getUserInfo(id)
               setData(userData)
@@ -25,12 +25,10 @@ const Dashboard = () => {
               console.log(error)
             } finally {
               setLoading(false)
-              console.log(loading)
             }
           }
-          getUserData()
+        getUserData()
     }, [error, id, loading]);
-
     
     if(loading) {
         return <Loader />
@@ -47,19 +45,22 @@ const Dashboard = () => {
             <main className="main">
                 <Message userName={name}/>
                 <div className="main__flex-container">
+                  <div>
                     <Activity userId={id}/>
-                    <ScoreContainer 
-                    caloriesValue={calories} 
-                    proteinValue={proteins} 
-                    arbohydrateValue={carbohydrate} 
-                    lipidValue={lipid} 
-                    />
+                    <div className="main__container">
+                      <Performance userId={id}/>
+                    </div>
+                  </div>
+                  <GeneralInformations
+                  caloriesValue={calories} 
+                  proteinValue={proteins} 
+                  arbohydrateValue={carbohydrate} 
+                  lipidValue={lipid} 
+                  />
                 </div>
-                
             </main>
         );
-    }
-        
+    }    
 }
 
 export default Dashboard;

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 
 
-const ScoreContainer = (props) => {
+const GeneralInformations = (props) => {
     const calories = props.caloriesValue
     const proteins = props.proteinValue
     const carbohydrate = props.carbohydrateValue
@@ -45,18 +45,18 @@ const ScoreContainer = (props) => {
         </div>
     )
 }
-ScoreContainer.defaultProps = {
+GeneralInformations.defaultProps = {
     calories: 0,
     proteins: 0,
     carbohydrate: 0,
     lipid: 0
 }
 
-ScoreContainer.propTypes = {
+GeneralInformations.propTypes = {
     calories: PropTypes.number.isRequired,
     proteins: PropTypes.number.isRequired,
     carbohydrate: PropTypes.number.isRequired,
     lipid: PropTypes.number.isRequired
 }
 
-export default ScoreContainer
+export default GeneralInformations
