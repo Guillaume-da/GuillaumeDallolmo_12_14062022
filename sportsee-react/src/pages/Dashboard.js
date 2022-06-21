@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import Sessions from '../components/Sessions'
+import Score from '../components/Score'
 import GeneralInformations from '../components/GeneralInformations'
 import Activity from '../components/Activity'
 import { getUserInfo } from '../services/Api';
@@ -53,7 +55,9 @@ const Dashboard = () => {
                   <div>
                     <Activity userId={id} />
                     <div className="main__container">
+                      <Sessions userId={id}/>
                       <Performance userId={id}/>
+                      <Score />
                     </div>
                   </div>
                   <GeneralInformations

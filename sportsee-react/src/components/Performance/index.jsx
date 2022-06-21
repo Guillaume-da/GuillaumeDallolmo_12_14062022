@@ -1,9 +1,9 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, Tooltip } from 'recharts'
 import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
 import { getUserPerformance } from '../../services/Api.js'
 // import useFetch from '../../hooks/useFetch'
-import './radar.scss'
+import './performance.scss'
 
 const Performance = (props) => {
     const id = props.userId
@@ -47,6 +47,7 @@ const Performance = (props) => {
                     stroke="#FFF"
                     tickLine={false}
                     />
+                    <Tooltip />
                     {/* <PolarRadiusAxis angle={30} domain={[0, 150]} /> */}
                     <Radar 
                     name="Mike" 

@@ -1,0 +1,14 @@
+@import '../../styles/index.scss';
+
+.score {
+    border-radius: 5px;
+    width: 258px;
+    height: 263px;
+    background: $grey-color;
+    display: inline-block;
+    &__title {
+        font-size: 15px;
+        margin-top: 24px;
+        margin-left: 30px;
+    }
+}

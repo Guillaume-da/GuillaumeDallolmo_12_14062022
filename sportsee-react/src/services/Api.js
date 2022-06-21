@@ -32,6 +32,14 @@ export const getUserPerformance = async (id) => {
   } catch (error) {
     console.log(error);
   }
-}
+} 
 
-  
+export const getUserAverageSessions = async (id) => {
+  try {
+    const response = await apiBaseUrl.get(`/${id}/average-sessions`);
+    console.log('Average Sessions',response.data)
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -6,6 +6,9 @@
     background: $grey-color;
     padding: 26px 26px 26px 32px;
     margin-bottom: 28px;
+    animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    position: relative;
+    top: 0;
     &__header {
         display: flex;
         font-size: 15px;
@@ -46,6 +49,17 @@
     justify-content: space-around;
     flex-direction: column;
     padding: 0 10px;
-    margin-left: 70px;
-    margin-right: 70px;
+    margin-left: 3.75vw;
+    margin-right: 3.75vw;
 }
+
+@keyframes slide-left {
+    0% {
+        // transform: translateY(25px);
+        opacity: 0;
+    }
+    100% {
+        // transform: translateY(0);
+        opacity: 1;
+    }
+  }
