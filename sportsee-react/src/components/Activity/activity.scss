@@ -35,3 +35,17 @@
         height: 8px;
     }
 }
+
+.custom-tooltip {
+    background: #E60000;
+    color: white;
+    font-size: 7px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 70px;
+    margin-right: 70px;
+}

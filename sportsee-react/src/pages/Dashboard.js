@@ -5,12 +5,16 @@ import Message from '../components/Message'
 import GeneralInformations from '../components/GeneralInformations'
 import Activity from '../components/Activity'
 import { getUserInfo } from '../services/Api';
+// import { getUserActivity } from '../services/Api';
 import Performance from '../components/Performance'
+// import useFetch from '../hooks/useFetch'
 
 const Dashboard = () => {
     const slug = useParams();
     const id = slug.id
 
+    // const { loading, data } = useFetch(getUserInfo(id))
+    
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -33,8 +37,9 @@ const Dashboard = () => {
     if(loading) {
         return <Loader />
     }
-         
+       
     if(data) {
+      console.log('data',data)
         const name = data.data.userInfos.firstName
         const calories = data.data.keyData.calorieCount
         const proteins = data.data.keyData.proteinCount
@@ -46,7 +51,7 @@ const Dashboard = () => {
                 <Message userName={name}/>
                 <div className="main__flex-container">
                   <div>
-                    <Activity userId={id}/>
+                    <Activity userId={id} />
                     <div className="main__container">
                       <Performance userId={id}/>
                     </div>
@@ -54,7 +59,7 @@ const Dashboard = () => {
                   <GeneralInformations
                   caloriesValue={calories} 
                   proteinValue={proteins} 
-                  arbohydrateValue={carbohydrate} 
+                  carbohydrateValue={carbohydrate} 
                   lipidValue={lipid} 
                   />
                 </div>

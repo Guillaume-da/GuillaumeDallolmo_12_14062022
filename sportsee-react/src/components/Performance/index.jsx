@@ -1,11 +1,14 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
-import React, { useState, useEffect } from 'react';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
+import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
-import { getUserPerformance } from '../../services/Api.js';
+import { getUserPerformance } from '../../services/Api.js'
+// import useFetch from '../../hooks/useFetch'
 import './radar.scss'
 
 const Performance = (props) => {
     const id = props.userId
+
+    // const { loading, data } = useFetch(getUserPerformance(id))
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -32,11 +35,25 @@ const Performance = (props) => {
     return (
         <div className="radar">
             <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data.data.data}>
+                <RadarChart 
+                cx="50%" 
+                cy="50%" 
+                outerRadius="80%" 
+                data={data.data.data} 
+                >
                     <PolarGrid  stroke="#fff"/>
-                    <PolarAngleAxis dataKey="kind" />
+                    <PolarAngleAxis 
+                    dataKey="kind" 
+                    stroke="#FFF"
+                    tickLine={false}
+                    />
                     {/* <PolarRadiusAxis angle={30} domain={[0, 150]} /> */}
-                    <Radar name="Mike" dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />
+                    <Radar 
+                    name="Mike" 
+                    dataKey="value" 
+                    stroke="#FF0101" 
+                    fill="#FF0101" 
+                    fillOpacity={0.7} />
                 </RadarChart>
             </ResponsiveContainer>
         </div>
