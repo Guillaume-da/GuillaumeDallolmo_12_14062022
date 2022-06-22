@@ -47,17 +47,18 @@ const Dashboard = () => {
         const proteins = data.data.keyData.proteinCount
         const carbohydrate = data.data.keyData.carbohydrateCount
         const lipid = data.data.keyData.lipidCount
+        const score = data.data.todayScore || data.data.score
 
         return (
             <main className="main">
                 <Message userName={name}/>
                 <div className="main__flex-container">
                   <div>
-                    <Activity userId={id} />
+                    <Activity userIdValue={id} />
                     <div className="main__container">
                       <Sessions userId={id}/>
                       <Performance userId={id}/>
-                      <Score />
+                      <Score scoreValue={score}/>
                     </div>
                   </div>
                   <GeneralInformations

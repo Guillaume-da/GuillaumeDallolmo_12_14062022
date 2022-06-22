@@ -1,14 +1,22 @@
 @import '../../styles/index.scss';
 
 .activity {
-    width: 57vw;
+    width: auto;
     height: 260px;
     background: $grey-color;
     padding: 26px 26px 26px 32px;
     margin-bottom: 28px;
-    animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-from-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     position: relative;
     top: 0;
+    @include breakpoint-very-large {
+        margin-bottom: 60px;
+        width: auto;
+    }
+    @include breakpoint-very-large {
+        margin-bottom: 28px;
+        width: 57vw;
+    }
     &__header {
         display: flex;
         font-size: 15px;
@@ -53,13 +61,13 @@
     margin-right: 3.75vw;
 }
 
-@keyframes slide-left {
+@keyframes slide-from-top {
     0% {
-        // transform: translateY(25px);
+        transform: translateY(25px);
         opacity: 0;
     }
     100% {
-        // transform: translateY(0);
+        transform: translateY(0);
         opacity: 1;
     }
   }

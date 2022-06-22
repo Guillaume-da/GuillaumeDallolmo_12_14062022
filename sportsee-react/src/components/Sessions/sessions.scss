@@ -2,10 +2,17 @@
 
 .duration {
     border-radius: 5px;
-    width: 258px;
+    width: auto;
     height: 263px;
     background: $dark-red;
     display: inline-block;
+    @include breakpoint-large {
+        width: 30%;
+    }
+    @include breakpoint-very-large {
+        width: 258px;
+    }
+
     &__title {
         color: white;
         font-size: 15px;
@@ -14,5 +21,6 @@
         margin-left: 34px;
         opacity: 0.5;
         width: 147px;
+        position: absolute;
     }
 }

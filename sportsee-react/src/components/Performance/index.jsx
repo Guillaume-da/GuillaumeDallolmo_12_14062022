@@ -23,7 +23,6 @@ const Performance = (props) => {
               console.log(error)
             } finally {
               setLoading(false)
-              console.log(loading)
             }
           }
           getUserData()
@@ -32,6 +31,24 @@ const Performance = (props) => {
     if(loading) {
         return <Loader />
     }
+    const datas = data.data.data
+    const formatedDatas = datas.map((item) => {
+      if(item.kind === 1) {
+        item.kind = "Cardio"
+      } else if (item.kind === 2) {
+        item.kind = "Energie"
+      } else if (item.kind === 3) {
+        item.kind = "Endurance"
+      } else if (item.kind === 4) {
+        item.kind = "Force"
+      } else if (item.kind === 5) {
+        item.kind = "Vitesse"
+      } else if (item.kind === 6) {
+        item.kind = "Intensité"
+      }
+      return datas
+    })
+    console.log(formatedDatas)
     return (
         <div className="radar">
             <ResponsiveContainer width="100%" height="100%">
@@ -40,12 +57,14 @@ const Performance = (props) => {
                 cy="50%" 
                 outerRadius="80%" 
                 data={data.data.data} 
+                margin={{top: 30, bottom: 30, left: 5, right: 10}}
                 >
                     <PolarGrid  stroke="#fff"/>
                     <PolarAngleAxis 
                     dataKey="kind" 
                     stroke="#FFF"
                     tickLine={false}
+                    style={{ fontSize: '10px'}}
                     />
                     <Tooltip />
                     {/* <PolarRadiusAxis angle={30} domain={[0, 150]} /> */}

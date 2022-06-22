@@ -6,7 +6,7 @@ import { getUserActivity } from '../../services/Api.js';
 import './activity.scss'
 
 const Activity = (props) => {
-    const id = props.userId
+    const id = props.userIdValue
     // const loading = props.loadingValue
     // const data = props.dataValue
 

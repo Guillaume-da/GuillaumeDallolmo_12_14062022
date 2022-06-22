@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { XAxis, Area, AreaChart, Line, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import Loader from '../Loader'
 import { getUserAverageSessions } from '../../services/Api.js';
 import './sessions.scss'
@@ -22,7 +22,6 @@ const Sessions = (props) => {
               console.log(error)
             } finally {
               setLoading(false)
-              console.log(loading)
             }
           }
           getUserData()
@@ -36,17 +35,40 @@ const Sessions = (props) => {
         return (
             <div className="duration">
                 <h2 className="duration__title">Durée moyenne des sessions</h2>
-                <ResponsiveContainer width="100%" height="90%" >
-                    <LineChart width={300} height={80} data={data.data.sessions}>
+                <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart
+                    outerRadius={90}
+                    data={data.data.sessions}
+                    margin={{
+                        top: 30,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                    }}
+                    >
+                        <XAxis
+                            dataKey="day"
+                            stroke="#fff"
+                            tickLine={false}
+                            axisLine={false}
+                            padding={{ left: 10, right: 10 }}
+                        />
+                        <YAxis hide={true} domain={["dataMin-10", "dataMax+10"]} />
                         <Tooltip />
                         <Line 
-                        type="natural" 
+                        type="monotone" 
                         dataKey="sessionLength" 
-                        stroke="#FFFFFF" 
-                        strokeWidth={2} 
-                        
+                        scale="band"
                         />
-                    </LineChart>
+                        <Area
+                        type="monotone"
+                        dataKey="sessionLength"
+                        stroke="#fff"
+                        strokeWidth="3"
+                        fill="#FF0D0D"
+                        activeDot={{ stroke: "#FFFFFF", strokeWidth: 4, r: 4 }}
+                        />
+                    </AreaChart>
                 </ResponsiveContainer>
             </div>
         )

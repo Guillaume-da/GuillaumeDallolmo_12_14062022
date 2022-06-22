@@ -3,9 +3,12 @@ body {
 }
 
 .main {
-    padding: 172px 70px 72px 210px;
+    padding: 145px 70px 72px 210px;
     height: 100%;
     width: auto;
+    @include breakpoint-large {
+        padding: 145px 49px 75px 158px;
+    }
     &__title {
         font-size: 48px;
         line-height: 24px;
@@ -28,9 +31,15 @@ body {
         column-gap: 24px;
         // height: 124px;
         padding: 32px;
-        animation: slide-top 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         position: relative;
-        top: 25px;
+        top: 0;
+        @include breakpoint-large {
+            padding: 15px;
+        }
+        @include breakpoint-very-large {
+            padding: 32px;
+        }
     }
     &__sidebar-item-text {
         display: flex;
@@ -51,27 +60,37 @@ body {
         margin: 77px 0 30px 0;
         justify-content: space-between;
         padding-bottom: 90px;
+        flex-direction: column-reverse;
+        @include breakpoint-large {
+            flex-direction: column-reverse;
+            row-gap: 45px;
+        }
+        @include breakpoint-very-large {
+            flex-direction: row;
+        }
     }
     &__flex-container-sidebar {
-        flex-direction: column;
+        flex-direction: row;
         display: flex;
         justify-content: space-between;
+        @include breakpoint-very-large {
+            flex-direction: column;
+        }
     }
 }
 
-@keyframes slide-top {
+@keyframes slide {
     0% {
-        transform: translateY(0);
+        transform: translateY(50px);
         opacity: 0;
     }
     100% {
-        transform: translateY(-25px);
+        transform: translateY(0);
         opacity: 1;
     }
   }
 
 // Add delay to each item
-
 @for $i from 1 through 14 {
     .main__flex-container-sidebar > .main__sidebar-item:nth-child(#{$i}) {
         animation-delay: #{$i * 0.25}s;

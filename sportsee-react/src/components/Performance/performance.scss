@@ -2,9 +2,15 @@
 
 .radar {
     border-radius: 5px;
-    width: 258px;
+    width: auto;
     height: 263px;
     background: $dark-grey;
     display: inline-block;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    @include breakpoint-large {
+        width: 30%;
+    }
+    @include breakpoint-very-large {
+        width: 258px;
+    }
 }

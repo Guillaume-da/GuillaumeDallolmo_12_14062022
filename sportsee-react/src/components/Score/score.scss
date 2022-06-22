@@ -2,13 +2,40 @@
 
 .score {
     border-radius: 5px;
-    width: 258px;
+    width: auto;
     height: 263px;
     background: $grey-color;
     display: inline-block;
+    position: relative;
+    @include breakpoint-large {
+        width: 30%;
+    }
+    @include breakpoint-very-large {
+        width: 258px;
+    }
     &__title {
         font-size: 15px;
         margin-top: 24px;
         margin-left: 30px;
+        position: absolute;
+    }
+    &__background {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 54%;
+        background: #FFFFFF;
+        height: 54%;
+        border-radius: 50%;
+    }
+    &__percent-score {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 26px;
+        font-weight: 700;
+        font-family: 'Roboto', sans-serif;
     }
 }
