@@ -1,14 +1,14 @@
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types'
 import './score.scss'
 
-const Score = (props)=> {
-    const scoreData = props.scoreValue
-    console.log(scoreData)
+const Score = (scoreValue)=> {
+    console.log('scoreValue',scoreValue)
     const formatedData = [
-        { name: "score", value: scoreData, stroke: "#FF0000"},
-        { name: "score", value: 1 - scoreData, stroke: 'transparent' }
+        { name: "score", value: scoreValue.scoreValue, stroke: "#FF0000"},
+        { name: "score", value: 1 - scoreValue.scoreValue, stroke: 'transparent' }
     ]
-    const percentScore = scoreData * 100
+    const percentScore = scoreValue.scoreValue * 100
    
     return (
         <div className="score">
@@ -36,6 +36,10 @@ const Score = (props)=> {
             </ResponsiveContainer>
         </div>
     )
+}
+
+Score.propTypes = {
+    scoreValue: PropTypes.number.isRequired
 }
 
 export default Score
