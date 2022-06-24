@@ -4,7 +4,6 @@ import swimmingIcon from '../../assets/swimming-icon.png'
 import bikeIcon from '../../assets/bike-icon.png'
 import weightIcon from '../../assets/weight-icon.png'
 import './footer.scss'
-// import PropTypes from 'prop-types';
 
 const Footer = () => {
     return (

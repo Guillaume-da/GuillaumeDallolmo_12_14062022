@@ -2,11 +2,12 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, Tool
 import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
 import { getUserPerformance } from '../../services/Api.js'
-// import useFetch from '../../hooks/useFetch'
+import PropTypes from 'prop-types'
 import './performance.scss'
+// import useFetch from '../../hooks/useFetch'
 
-const Performance = (props) => {
-    const id = props.userId
+const Performance = (userId) => {
+    // const id = props.userId
 
     // const { loading, data } = useFetch(getUserPerformance(id))
     const [data, setData] = useState(null);
@@ -16,7 +17,7 @@ const Performance = (props) => {
     useEffect(() => {
         const getUserData = async () => {
             try {
-              const userData = await getUserPerformance(id)
+              const userData = await getUserPerformance(userId.userId)
               setData(userData)
             } catch (err) {
               setError(true)
@@ -26,7 +27,7 @@ const Performance = (props) => {
             }
           }
           getUserData()
-    }, [error, id]);
+    }, [error, userId.userId]);
 
     if(loading) {
         return <Loader />
@@ -79,6 +80,10 @@ const Performance = (props) => {
         </div>
     )
     
+}
+
+Performance.propTypes = {
+  userId: PropTypes.string.isRequired
 }
 
 export default Performance

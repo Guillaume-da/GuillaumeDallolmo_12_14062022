@@ -54,7 +54,7 @@ const Dashboard = () => {
                 <Message userName={name}/>
                 <div className="main__flex-container">
                   <div>
-                    <Activity userIdValue={id} />
+                    <Activity userId={id} />
                     <div className="main__container">
                       <Sessions userId={id}/>
                       <Performance userId={id}/>

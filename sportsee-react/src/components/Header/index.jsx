@@ -1,7 +1,6 @@
 import React from 'react'
 import logo from '../../assets/logo.png'
 import './header.scss'
-// import PropTypes from 'prop-types';
 
 const Header = () => {
     return (
