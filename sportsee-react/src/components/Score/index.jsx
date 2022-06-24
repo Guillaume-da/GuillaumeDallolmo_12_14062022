@@ -13,7 +13,7 @@ const Score = (scoreValue)=> {
         <div className="score">
             <h2 className="score__title">Score</h2>
             <div className="score__background">
-                <div className="score__percent-score">{percentScore}%</div>
+                <div className="score__percent-score">{percentScore}% <span className="score__percent-score-text">de votre objectif</span></div>
             </div>
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -23,8 +23,8 @@ const Score = (scoreValue)=> {
                     nameKey="name"
                     cx="50%"
                     cy="50%"
-                    innerRadius="60%"
-                    outerRadius="60%"
+                    innerRadius="68%"
+                    outerRadius="68%"
                     fill="#FF0000"
                     startAngle={90}
                     endAngle={470}
