@@ -48,7 +48,7 @@ const Dashboard = () => {
         const carbohydrate = data.data.keyData.carbohydrateCount
         const lipid = data.data.keyData.lipidCount
         const score = data.data.todayScore || data.data.score
-
+        
         return (
             <main className="main">
                 <Message userName={name}/>

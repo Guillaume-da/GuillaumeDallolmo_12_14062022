@@ -9,28 +9,28 @@ const GeneralInformations = ({ caloriesValue, proteinValue, carbohydrateValue, l
         return (
             <div className="main__flex-container-sidebar">
                 <div className="main__sidebar-item">
-                    <img src={caloriesIcon} alt="" className="main__sidebar-img" />
+                    <img src={caloriesIcon} alt="Calories" className="main__sidebar-img" />
                     <div className="main__sidebar-item-text">
                         <span>{caloriesValue}Cal</span>
                         <span className="main__sidebar-item-unity-text">calories</span>
                     </div>
                 </div>
                 <div className="main__sidebar-item">
-                    <img src={proteinIcon} alt="" className="main__sidebar-img" />
+                    <img src={proteinIcon} alt="Protéines" className="main__sidebar-img" />
                     <div className="main__sidebar-item-text">
                         <span>{proteinValue}g</span>
                         <span className="main__sidebar-item-unity-text">Proteines</span>
                     </div>
                 </div>
                 <div className="main__sidebar-item">
-                    <img src={carbsIcon} alt="" className="main__sidebar-img" />
+                    <img src={carbsIcon} alt="Glucides" className="main__sidebar-img" />
                     <div className="main__sidebar-item-text">
                         <span>{carbohydrateValue}g</span>
                         <span className="main__sidebar-item-unity-text">glucides</span>
                     </div>
                  </div>
                 <div className="main__sidebar-item">
-                    <img src={fatIcon} alt="" className="main__sidebar-img" />
+                    <img src={fatIcon} alt="Lipides" className="main__sidebar-img" />
                     <div className="main__sidebar-item-text">
                         <span>{lipidValue}g</span>
                         <span className="main__sidebar-item-unity-text">lipides</span>

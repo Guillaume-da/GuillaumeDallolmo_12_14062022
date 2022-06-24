@@ -6,6 +6,7 @@
     height: 263px;
     background: $dark-red;
     display: inline-block;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     @include breakpoint-large {
         width: 30%;
     }
@@ -23,4 +24,18 @@
         width: 147px;
         position: absolute;
     }
+}
+
+.sessions-custom-tooltip {
+    background: #FFFFFF;
+    color: black;
+    font-size: 8px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 0;
+    margin-right: 0;
 }

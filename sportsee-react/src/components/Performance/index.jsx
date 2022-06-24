@@ -26,7 +26,7 @@ const Performance = (props) => {
             }
           }
           getUserData()
-    }, [error, id, loading]);
+    }, [error, id]);
 
     if(loading) {
         return <Loader />
@@ -48,7 +48,7 @@ const Performance = (props) => {
       }
       return datas
     })
-    console.log(formatedDatas)
+    console.log('formatedDatas',formatedDatas)
     return (
         <div className="radar">
             <ResponsiveContainer width="100%" height="100%">

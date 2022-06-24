@@ -7,7 +7,7 @@ body {
     height: 100%;
     width: auto;
     @include breakpoint-large {
-        padding: 145px 49px 75px 158px;
+        padding: 159px 90px 88px 224px;
     }
     &__title {
         font-size: 48px;
@@ -31,7 +31,7 @@ body {
         column-gap: 24px;
         // height: 124px;
         padding: 32px;
-        animation: slide 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide 0.35s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         position: relative;
         top: 0;
         @include breakpoint-large {
@@ -81,11 +81,18 @@ body {
 
 @keyframes slide {
     0% {
-        transform: translateY(50px);
+        // transform: translateY(0);
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        // transform: translateY(0);
+        transform: scale(1.25);
         opacity: 0;
     }
     100% {
-        transform: translateY(0);
+        // transform: translateY(-25px);
+        transform: scale(1);
         opacity: 1;
     }
   }

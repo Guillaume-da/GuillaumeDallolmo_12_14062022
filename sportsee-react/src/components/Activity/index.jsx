@@ -41,7 +41,7 @@ const Activity = (props) => {
             }
           }
           getUserData()
-    }, [error, id, loading]);
+    }, []);
 
     if(loading) {
         return <Loader />
@@ -87,7 +87,7 @@ const Activity = (props) => {
                     tickMargin={15}
                     tickLine={false}
                     // scale={'point'}
-                    padding={{ left: 0, right: 0 }}
+                    padding={{ left: 20, right: 0 }}
                     axisLine={{ stroke: '#DEDEDE' }}
                     tick={{ fill: '#9B9EAC', fontSize: '14px' }}
                     tickFormatter={(number) => number + 1}

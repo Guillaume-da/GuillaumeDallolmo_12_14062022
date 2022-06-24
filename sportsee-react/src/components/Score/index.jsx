@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import './score.scss'
 
 const Score = (scoreValue)=> {
-    console.log('scoreValue',scoreValue)
     const formatedData = [
         { name: "score", value: scoreValue.scoreValue, stroke: "#FF0000"},
         { name: "score", value: 1 - scoreValue.scoreValue, stroke: 'transparent' }
