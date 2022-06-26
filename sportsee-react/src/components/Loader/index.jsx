@@ -1,10 +1,44 @@
-import './loader.scss';
+import styled from 'styled-components'
+// import './loader.scss';
+
+const DivLabel = styled.div`
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        opacity: 1;
+        overflow: hidden;
+        z-index: 999;
+`
+
+const DivContentLabel = styled.div`
+        border: 8px solid #FF0101;
+        border-left-color: black;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        @keyframes spin {
+          0% {
+              transform: rotate(0deg);
+          }
+          100% {
+              transform: rotate(360deg);
+          }
+        }
+`
 
 const Loader = () => {
   return (
-    <div className="loading-spinner">
-        <div className="loading-spinner__content"></div>
-    </div>
+    <DivLabel>
+        <DivContentLabel></DivContentLabel>
+    </DivLabel>
   );
 }
 
