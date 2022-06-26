@@ -3,22 +3,46 @@ import yogaIcon from '../../assets/yoga-icon.png'
 import swimmingIcon from '../../assets/swimming-icon.png'
 import bikeIcon from '../../assets/bike-icon.png'
 import weightIcon from '../../assets/weight-icon.png'
-import './footer.scss'
+import styled from 'styled-components'
+
+const AsideLabel = styled.aside`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #020203;
+    width: 117px;
+    position: fixed;
+    z-index: 500;
+    height: 100%;
+    top: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`
+const DivLabel = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+`
+
+const ImgLabel = styled.img`
+    width: 64px;
+    height: 64px;
+`
 
 const Footer = () => {
     return (
         <div>
-            <aside className="mainContainer__vertical-menu">
-                <div className="mainContainer__vertical-menu-container">
-                    <img src={yogaIcon} alt="" className="mainContainer__vertical-menu-item" />
-                    <img src={swimmingIcon} alt="" className="mainContainer__vertical-menu-item" />
-                    <img src={bikeIcon} alt="" className="mainContainer__vertical-menu-item" />
-                    <img src={weightIcon} alt="" className="mainContainer__vertical-menu-item" />
-                </div>
-            </aside>
+            <AsideLabel>
+                <DivLabel>
+                    <ImgLabel src={yogaIcon} alt="" />
+                    <ImgLabel src={swimmingIcon} alt="" />
+                    <ImgLabel src={bikeIcon} alt="" />
+                    <ImgLabel src={weightIcon} alt="" />
+                </DivLabel>
+            </AsideLabel>
         </div> 
     );
 };
-
 
 export default Footer;

@@ -83,7 +83,7 @@ const Sessions = (userId) => {
                         stroke="#fff"
                         strokeWidth="2"
                         fill="#FF0D0D"
-                        activeDot={{ stroke: "#FFFFFF", strokeWidth: 3, r: 3, border: '5px solid rgba(255, 255, 255, 0.198345)' }}
+                        activeDot={{ width: 8, fill: '#FFFFFF', stroke: "#FFFFFF", strokeWidth: 10, r: 3, strokeOpacity: 0.35, border: '5px solid rgba(255, 255, 255, 0.198345)' }}
                         />
                     </AreaChart>
                 </ResponsiveContainer>

@@ -6,7 +6,11 @@ body {
     padding: 145px 70px 72px 210px;
     height: 100%;
     width: auto;
+    
     @include breakpoint-large {
+        padding: 159px 34px 88px 160px;
+    }
+    @include breakpoint-very-large {
         padding: 159px 90px 88px 224px;
     }
     &__title {

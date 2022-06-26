@@ -87,7 +87,7 @@ const Activity = (userId) => {
                     tickMargin={15}
                     tickLine={false}
                     // scale={'point'}
-                    padding={{ left: 20, right: 0 }}
+                    padding={{ left: -40, right: -40 }}
                     axisLine={{ stroke: '#DEDEDE' }}
                     tick={{ fill: '#9B9EAC', fontSize: '14px' }}
                     tickFormatter={(number) => number + 1}
@@ -110,8 +110,7 @@ const Activity = (userId) => {
                     dataKey="calories"
                     hide={true}
                     />
-                    <Tooltip position={{ y: -25}} content={<CustomTooltip />} cursor={{background: '#C4C4C4', opacity: 0.5}}/>
-                    {/* <Legend /> */}
+                    <Tooltip position={{ y: -25}} content={<CustomTooltip />} cursor={{background: '#C4C4C4', opacity: 0.5 }} />
                     <Bar 
                     dataKey="kilogram" 
                     yAxisId="kilogram"
@@ -130,8 +129,7 @@ const Activity = (userId) => {
                 </ResponsiveContainer>
             </div>
         )
-    }
-    
+    }  
 }
 
 Activity.propTypes = {

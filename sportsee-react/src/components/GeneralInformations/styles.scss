@@ -26,7 +26,7 @@
         column-gap: 24px;
         // height: 124px;
         padding: 32px;
-        animation: slide-top 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-anim 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
     &__sidebar-item-text {
         display: flex;
@@ -55,7 +55,7 @@
     }
 }
 
-@keyframes slide-top {
+@keyframes scale-anim {
     0% {
         // transform: translateY(0);
         transform: scale(1.25);
