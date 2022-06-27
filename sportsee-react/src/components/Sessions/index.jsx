@@ -3,7 +3,46 @@ import { XAxis, Area, AreaChart, Line, YAxis, Tooltip, ResponsiveContainer } fro
 import Loader from '../Loader'
 import { getUserAverageSessions } from '../../services/Api.js';
 import PropTypes from 'prop-types'
-import './sessions.scss'
+import styled from 'styled-components'
+
+const Container = styled.div`
+    border-radius: 5px;
+    width: auto;
+    height: 263px;
+    background: #FF0000;
+    display: inline-block;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    @media (min-width: 1024px) {
+      width: 30%;
+    }
+    @media (min-width: 1380px) {
+      width: 258px;
+    }
+`
+const Title = styled.h2`
+    color: white;
+    font-size: 15px;
+    line-height: 24px;
+    margin-top: 29px;
+    margin-left: 34px;
+    opacity: 0.5;
+    width: 147px;
+    position: absolute;
+`
+const SessionsCustomTooltip = styled.div`
+    background: #FFFFFF;
+    color: black;
+    font-size: 8px;
+    font-weight: 500;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 0;
+    margin-right: 0;
+`
 
 const Sessions = (userId) => {
     // const id = props.userId
@@ -16,9 +55,9 @@ const Sessions = (userId) => {
     function CustomTooltip({ payload, label, active }) {
         if (active) {
           return (
-            <div className="sessions-custom-tooltip">
+            <SessionsCustomTooltip>
               <p className="label">{`${payload[0].value}`} min</p>
-            </div>
+            </SessionsCustomTooltip>
           );
         }
         return null;
@@ -45,8 +84,8 @@ const Sessions = (userId) => {
     if(data) {
         console.log('Sessions',data)
         return (
-            <div className="duration">
-                <h2 className="duration__title">Durée moyenne des sessions</h2>
+            <Container>
+                <Title>Durée moyenne des sessions</Title>
                 <ResponsiveContainer 
                 width="100%" 
                 height="100%"
@@ -93,7 +132,7 @@ const Sessions = (userId) => {
                         />
                     </AreaChart>
                 </ResponsiveContainer>
-            </div>
+            </Container>
         )
     }
 }
