@@ -24,7 +24,6 @@ const DivLabel = styled.div`
     align-items: center;
     row-gap: 20px;
 `
-
 const ImgLabel = styled.img`
     width: 64px;
     height: 64px;

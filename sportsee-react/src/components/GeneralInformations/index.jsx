@@ -6,16 +6,18 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ContainerDivLabel = styled.div`
-    flex-direction: column;
+    flex-direction: row;
     display: flex;
     justify-content: space-between;
+    @media (min-width: 1380px) {
+        flex-direction: column;
+    }
 `
-
 const ItemDivLabel = styled.div`
     background: $grey-color;
     display: flex;
     column-gap: 24px;
-    padding: 32px;
+    padding: auto;
     animation: scale-anim 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     @keyframes scale-anim {
         0% {
@@ -32,8 +34,13 @@ const ItemDivLabel = styled.div`
             animation-delay: #{$i * 0.15}s;
         }
     }
+    @media (min-width: 1024px) {
+        padding: 15px;
+    }
+    @media (min-width: 1380px) {
+        padding: 32px;
+    }
 `
-
 const ImgLabel = styled.img`
     width: 60px;
     height: 60px;
@@ -44,7 +51,6 @@ const TextDivLabel = styled.div`
     justify-content: center;
     row-gap: 5px;
 `
-
 const SpanLabel = styled.span`
     color: #74798C;
     font-size: 14px;

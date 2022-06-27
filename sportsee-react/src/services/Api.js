@@ -2,8 +2,7 @@ import axios from "axios";
 
 const apiBaseUrl = axios.create({
 	baseURL: "http://localhost:3000/user",
-});
-  
+}); 
 
 export const getUserInfo = async (id) => {
     try {

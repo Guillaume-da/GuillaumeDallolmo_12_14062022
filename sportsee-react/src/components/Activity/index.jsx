@@ -3,8 +3,80 @@ import Loader from '../Loader'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { getUserActivity } from '../../services/Api.js';
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 // import useFetch from '../../hooks/useFetch'
-import './activity.scss'
+// import './activity.scss'
+
+const ContainerDivLabel = styled.div`
+    width: auto;
+    height: 260px;
+    background: $grey-color;
+    padding: 26px 26px 26px 32px;
+    margin-bottom: 28px;
+    animation: scale-anim 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    position: relative;
+    top: 0;
+    
+    @media (min-width: 1380px) {
+      margin-bottom: 28px;
+      width: 57vw;
+    }
+    @keyframes scale-anim {
+      0% {
+          transform: scale(1);
+          opacity: 0.25;
+      }
+      50% {
+          transform: scale(1.1);
+          opacity: 0.75;
+      }
+      100% {
+          transform: scale(1);
+          opacity: 1;
+      }
+    }
+`
+const HeaderDivLabel = styled.div`
+    display: flex;
+    font-size: 15px;
+    justify-content: space-between;
+    margin-bottom: 45px;
+`
+const LegendDivLabel = styled.div`
+    color: #74798C;
+    column-gap: 32px;
+    display: flex;
+`
+const HeaderContainerDivLabel = styled.div`
+    display: flex;
+    column-gap: 12px;
+    align-items: center;
+`
+const GreyCircle = styled.div`
+    background: #282D30;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+`
+const RedCircle = styled.div`
+    background: #E60000;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+`
+const TooltipContainer = styled.div`
+    background: #E60000;
+    color: white;
+    font-size: 7px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 4vw;
+    margin-right: 4vw;
+`
 
 const Activity = (userId) => {
     // const loading = props.loadingValue
@@ -18,10 +90,10 @@ const Activity = (userId) => {
     function CustomTooltip({ payload, label, active }) {
         if (active) {
           return (
-            <div className="custom-tooltip">
-              <p className="label">{`${payload[0].value}`}kg</p>
-              <p className="label">{`${payload[1].value}`}KCal</p>
-            </div>
+            <TooltipContainer>
+              <p>{`${payload[0].value}`}kg</p>
+              <p>{`${payload[1].value}`}KCal</p>
+            </TooltipContainer>
           );
         }
         return null;
@@ -48,21 +120,20 @@ const Activity = (userId) => {
     }
     if(data) {
         return (
-            <div className="activity">
-                <div className="activity__header">
+            <ContainerDivLabel>
+                <HeaderDivLabel>
                     <h2>Activité quotidienne</h2>
-                    <div className="activity__header-legend">
-                        <div className="activity__header-legend-container">
-                            <div className="activity__header-grey-circle"></div>
+                    <LegendDivLabel>
+                        <HeaderContainerDivLabel>
+                            <GreyCircle></GreyCircle>
                             <span>Poids (kg)</span>
-                        </div>
-                        <div className="activity__header-legend-container">
-                            <div className="activity__header-red-circle"></div>
+                        </HeaderContainerDivLabel>
+                        <HeaderContainerDivLabel>
+                            <RedCircle></RedCircle>
                             <span>Calories brûlées (kCal)</span>
-                        </div>
-                    </div>
-                                
-                </div>
+                        </HeaderContainerDivLabel>
+                    </LegendDivLabel>         
+                </HeaderDivLabel>
                 <ResponsiveContainer width="100%" height="80%" >
                     <BarChart
                     width="100%"
@@ -86,7 +157,6 @@ const Activity = (userId) => {
                     domain={['minData', 'maxData']} 
                     tickMargin={15}
                     tickLine={false}
-                    // scale={'point'}
                     padding={{ left: -40, right: -40 }}
                     axisLine={{ stroke: '#DEDEDE' }}
                     tick={{ fill: '#9B9EAC', fontSize: '14px' }}
@@ -110,7 +180,11 @@ const Activity = (userId) => {
                     dataKey="calories"
                     hide={true}
                     />
-                    <Tooltip position={{ y: -25}} content={<CustomTooltip />} cursor={{background: '#C4C4C4', opacity: 0.5 }} />
+                    <Tooltip 
+                    position={{ y: -25}} 
+                    content={<CustomTooltip />} 
+                    cursor={{background: '#C4C4C4', opacity: 0.5 }} 
+                    />
                     <Bar 
                     dataKey="kilogram" 
                     yAxisId="kilogram"
@@ -127,7 +201,7 @@ const Activity = (userId) => {
                     />
                     </BarChart>
                 </ResponsiveContainer>
-            </div>
+            </ContainerDivLabel>
         )
     }  
 }

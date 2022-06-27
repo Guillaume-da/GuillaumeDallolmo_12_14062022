@@ -47,7 +47,10 @@ const Sessions = (userId) => {
         return (
             <div className="duration">
                 <h2 className="duration__title">Durée moyenne des sessions</h2>
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer 
+                width="100%" 
+                height="100%"
+                >
                     <AreaChart
                     outerRadius={90}
                     data={data.data.sessions}
@@ -72,7 +75,10 @@ const Sessions = (userId) => {
                             }}
                         />
                         <YAxis hide={true} domain={["dataMin-10", "dataMax+10"]} />
-                        <Tooltip content={<CustomTooltip />} cursor={false}/>
+                        <Tooltip 
+                        content={<CustomTooltip />} 
+                        cursor={false}
+                        />
                         <Line 
                         type="monotone" 
                         dataKey="sessionLength"

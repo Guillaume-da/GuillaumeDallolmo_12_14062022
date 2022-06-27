@@ -1,10 +1,20 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
 import { getUserPerformance } from '../../services/Api.js'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import './performance.scss'
 // import useFetch from '../../hooks/useFetch'
+
+const RadarDivLabel = styled.div`
+    border-radius: 5px;
+    width: 258px;
+    height: 263px;
+    background: #282D30;
+    display: inline-block;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+`
 
 const Performance = (userId) => {
     // const id = props.userId
@@ -52,7 +62,7 @@ const Performance = (userId) => {
     })
     
     return (
-        <div className="radar">
+        <RadarDivLabel >
             <ResponsiveContainer width="100%" height="100%">
                 <RadarChart 
                 cx="50%" 
@@ -66,12 +76,9 @@ const Performance = (userId) => {
                     dataKey="kind" 
                     stroke="#FFF"
                     tickLine={false}
-                    // transform: scale(1.045);
-                    // transform-origin: 146px 59px;
                     style={{ fontSize: '12px' }}
-                    // style={{ transform: 'scale(1.045)', transformOrigin: '146px 59px'}}
                     />
-                    {/* <Tooltip /> */}
+                    <Tooltip />
                     <Radar 
                     // name="Mike" 
                     dataKey="value" 
@@ -81,7 +88,7 @@ const Performance = (userId) => {
                     />
                 </RadarChart>
             </ResponsiveContainer>
-        </div>
+        </RadarDivLabel>
     )
     
 }

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-// import './loader.scss';
 
 const DivLabel = styled.div`
         justify-content: center;
@@ -16,7 +15,6 @@ const DivLabel = styled.div`
         overflow: hidden;
         z-index: 999;
 `
-
 const DivContentLabel = styled.div`
         border: 8px solid #FF0101;
         border-left-color: black;

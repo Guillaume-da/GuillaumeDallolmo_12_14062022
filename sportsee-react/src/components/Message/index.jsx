@@ -6,13 +6,11 @@ const SpanLabel = styled.span`
     font-size: 48px;
     line-height: 24px;
 `
-
 const RedSpanLabel = styled.span`
     font-size: 48px;
     color: #FF0101;
     line-height: 24px;
 `
-
 const MessageLabel = styled.p`
     margin-top: 48px;
 `
