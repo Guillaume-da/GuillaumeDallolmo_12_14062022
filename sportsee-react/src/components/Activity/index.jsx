@@ -10,7 +10,8 @@ import styled from 'styled-components'
 const ContainerDivLabel = styled.div`
     width: auto;
     height: 260px;
-    background: $grey-color;
+    background: #FBFBFB;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     padding: 26px 26px 26px 32px;
     margin-bottom: 28px;
     animation: scale-anim 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

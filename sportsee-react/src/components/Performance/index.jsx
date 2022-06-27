@@ -80,7 +80,7 @@ const Performance = (userId) => {
                     />
                     <Tooltip />
                     <Radar 
-                    // name="Mike" 
+                    name="Valeur" 
                     dataKey="value" 
                     stroke="#FF0101" 
                     fill="#FF0101" 
