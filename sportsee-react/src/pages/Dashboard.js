@@ -7,9 +7,40 @@ import Score from '../components/Score'
 import GeneralInformations from '../components/GeneralInformations'
 import Activity from '../components/Activity'
 import { getUserInfo } from '../services/Api';
+import styled from 'styled-components'
 // import { getUserActivity } from '../services/Api';
 import Performance from '../components/Performance'
 // import useFetch from '../hooks/useFetch'
+
+const MainDivLabel = styled.div`
+    padding: 145px 70px 72px 210px;
+    height: 100%;
+    width: auto;
+    @media (min-width: 1024px) {
+      padding: 159px 34px 88px 160px;
+    }
+    @media (min-width: 1380px) {
+      padding: 159px 90px 88px 224px;
+    }
+`
+const Container = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+const FlexContainer = styled.div`
+    display: flex;
+    margin: 77px 0 30px 0;
+    justify-content: space-between;
+    padding-bottom: 90px;
+    flex-direction: column-reverse;
+    @media (min-width: 1024px) {
+      flex-direction: column-reverse;
+      row-gap: 45px;
+    }
+    @media (min-width: 1380px) {
+      flex-direction: row;
+    }
+`
 
 const Dashboard = () => {
     const slug = useParams();
@@ -50,16 +81,16 @@ const Dashboard = () => {
         const score = data.data.todayScore || data.data.score
         
         return (
-            <main className="main">
+            <MainDivLabel>
                 <Message userName={name}/>
-                <div className="main__flex-container">
+                <FlexContainer>
                   <div>
                     <Activity userId={id} />
-                    <div className="main__container">
+                    <Container>
                       <Sessions userId={id}/>
                       <Performance userId={id}/>
                       <Score scoreValue={score}/>
-                    </div>
+                    </Container>
                   </div>
                   <GeneralInformations
                   caloriesValue={calories} 
@@ -67,8 +98,8 @@ const Dashboard = () => {
                   carbohydrateValue={carbohydrate} 
                   lipidValue={lipid} 
                   />
-                </div>
-            </main>
+                </FlexContainer>
+            </MainDivLabel>
         );
     }    
 }

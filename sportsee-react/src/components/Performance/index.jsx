@@ -4,7 +4,6 @@ import Loader from '../Loader'
 import { getUserPerformance } from '../../services/Api.js'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import './performance.scss'
 // import useFetch from '../../hooks/useFetch'
 
 const RadarDivLabel = styled.div`
