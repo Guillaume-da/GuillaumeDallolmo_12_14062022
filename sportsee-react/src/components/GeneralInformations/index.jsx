@@ -17,6 +17,7 @@ const ItemDivLabel = styled.div`
     background: $grey-color;
     display: flex;
     column-gap: 24px;
+    opacity: 0;
     padding: auto;
     animation: scale-anim 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     @keyframes scale-anim {

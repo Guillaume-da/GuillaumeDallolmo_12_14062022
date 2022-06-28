@@ -90,7 +90,6 @@ const Performance = (userId) => {
             </ResponsiveContainer>
         </RadarDivLabel>
     )
-    
 }
 
 Performance.propTypes = {
