@@ -58,7 +58,7 @@ export const getUserPerformance = async (id) => {
   try {
     if(mockedDatas) {
       const response = await USER_PERFORMANCE.filter(x => x.userId === +id);
-      console.log(response)
+      // console.log(response)
       return {
           data: response[0],
       }

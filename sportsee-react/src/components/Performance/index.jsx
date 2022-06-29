@@ -1,10 +1,10 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Tooltip, ResponsiveContainer } from 'recharts'
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import Loader from '../Loader'
 import { getUserPerformance } from '../../services/Api.js'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import useFetch from '../../hooks/useFetch'
+import useFetch from '../../hooks/useFetch'
 
 const RadarDivLabel = styled.div`
     border-radius: 5px;
@@ -18,26 +18,26 @@ const RadarDivLabel = styled.div`
 const Performance = (userId) => {
     // const id = props.userId
 
-    // const { loading, data } = useFetch(getUserPerformance(id))
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { loading, data } = useFetch(getUserPerformance(userId.userId))
+    // const [data, setData] = useState(null);
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const getUserData = async () => {
-            try {
-              const userData = await getUserPerformance(userId.userId)
-              console.log('userData',userData)
-              setData(userData)
-            } catch (err) {
-              setError(true)
-              console.log(error)
-            } finally {
-              setLoading(false)
-            }
-          }
-          getUserData()
-    }, [error, userId.userId]);
+    // useEffect(() => {
+    //     const getUserData = async () => {
+    //         try {
+    //           const userData = await getUserPerformance(userId.userId)
+    //           console.log('userData',userData)
+    //           setData(userData)
+    //         } catch (err) {
+    //           setError(true)
+    //           console.log(error)
+    //         } finally {
+    //           setLoading(false)
+    //         }
+    //       }
+    //       getUserData()
+    // }, [error, userId.userId]);
 
     if(loading) {
         return <Loader />
