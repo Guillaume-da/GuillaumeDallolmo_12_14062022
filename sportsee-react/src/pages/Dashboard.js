@@ -8,7 +8,6 @@ import GeneralInformations from '../components/GeneralInformations'
 import Activity from '../components/Activity'
 import { getUserInfo } from '../services/Api';
 import styled from 'styled-components'
-// import { getUserActivity } from '../services/Api';
 import Performance from '../components/Performance'
 // import useFetch from '../hooks/useFetch'
 
@@ -45,8 +44,7 @@ const FlexContainer = styled.div`
 const Dashboard = () => {
     const slug = useParams();
     const id = slug.id
-    // const integer = parseInt(id, 10);
-    // console.log(integer)
+    
     // const { loading, data } = useFetch(getUserInfo(id))
     
     const [data, setData] = useState(null);
@@ -69,9 +67,7 @@ const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
-    if(loading) {
-        return <Loader />
-    }
+    if(loading) return <Loader />
        
     if(data) {
       console.log('data',data)

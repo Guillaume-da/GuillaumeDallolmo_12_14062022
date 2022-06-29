@@ -39,13 +39,11 @@ export const getUserActivity = async (id) => {
   try {
     if(mockedDatas) {
       const response = await USER_ACTIVITY.filter(x => x.userId === +id);
-      // console.log(response)
       return {
           data: response[0],
       }
     } else {
       const response = await apiBaseUrl.get(`/${id}/activity`);
-      // console.log('activity',response.data)
       return response.data;
     }
     
@@ -58,13 +56,11 @@ export const getUserPerformance = async (id) => {
   try {
     if(mockedDatas) {
       const response = await USER_PERFORMANCE.filter(x => x.userId === +id);
-      // console.log(response)
       return {
           data: response[0],
       }
     } else {
       const response = await apiBaseUrl.get(`/${id}/performance`);
-      // console.log('performance',response.data)
       return response.data;
     }
     
@@ -77,13 +73,11 @@ export const getUserAverageSessions = async (id) => {
   try {
     if(mockedDatas) {
       const response = await USER_AVERAGE_SESSIONS.filter(x => x.userId === +id);
-      // console.log(response)
       return {
           data: response[0],
       }
     } else {
       const response = await apiBaseUrl.get(`/${id}/average-sessions`);
-      // console.log('Average Sessions',response.data)
       return response.data;
     }
   } catch (error) {

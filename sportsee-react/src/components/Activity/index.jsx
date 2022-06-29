@@ -1,11 +1,9 @@
-// import React, { useState, useEffect } from 'react';
 import Loader from '../Loader'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { getUserActivity } from '../../services/Api.js';
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useFetch from '../../hooks/useFetch'
-// import './activity.scss'
 
 const ContainerDivLabel = styled.div`
     width: auto;
@@ -80,14 +78,8 @@ const TooltipContainer = styled.div`
 `
 
 const Activity = (userId) => {
-    console.log(userId)
-    // const loading = props.loadingValue
-    // const data = props.dataValue
 
     const { loading, data } = useFetch(getUserActivity(userId.userId))
-    // const [data, setData] = useState(null);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
 
     function CustomTooltip({ payload, label, active }) {
         if (active) {
@@ -101,26 +93,10 @@ const Activity = (userId) => {
         return null;
       }
 
-    // useEffect(() => {
-    //     const getUserData = async () => {
-    //         try {
-    //           const userData = await getUserActivity(userId.userId)
-    //           setData(userData)
-    //         } catch (err) {
-    //           setError(true)
-    //           console.log(error)
-    //         } finally {
-    //           setLoading(false)
-    //           console.log(loading)
-    //         }
-    //       }
-    //       getUserData()
-    // }, [error, loading, userId.userId]);
-
-    if(loading) {
-        return <Loader />
-    }
+    if(loading) return <Loader />
+    
     if(data) {
+        console.log('Activity',data)
         return (
             <ContainerDivLabel>
                 <HeaderDivLabel>

@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from 'react';
 import { XAxis, Area, AreaChart, Line, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import Loader from '../Loader'
 import { getUserAverageSessions } from '../../services/Api.js';
@@ -46,12 +45,8 @@ const SessionsCustomTooltip = styled.div`
 `
 
 const Sessions = (userId) => {
-    // const id = props.userId
-    // console.log('userId', userId)
+    
     const { loading, data } = useFetch(getUserAverageSessions(userId.userId))
-    // const [data, setData] = useState(null);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
 
     function CustomTooltip({ payload, label, active }) {
         if (active) {
@@ -64,24 +59,8 @@ const Sessions = (userId) => {
         return null;
       }
 
-    // useEffect(() => {
-    //     const getUserData = async () => {
-    //         try {
-    //           const userData = await getUserAverageSessions(userId.userId)
-    //           setData(userData)
-    //         } catch (err) {
-    //           setError(true)
-    //           console.log(error)
-    //         } finally {
-    //           setLoading(false)
-    //         }
-    //       }
-    //       getUserData()
-    // }, [error, userId.userId]);
-
-    if(loading) {
-        return <Loader />
-    }
+    if(loading) return <Loader />
+    
     if(data) {
         console.log('Sessions',data)
         return (
