@@ -137,7 +137,7 @@ const Sessions = (userId) => {
     }
 }
 Sessions.propTypes = {
-    userId: PropTypes.string.isRequired
+    userId: PropTypes.number.isRequired
 }
 
 export default Sessions

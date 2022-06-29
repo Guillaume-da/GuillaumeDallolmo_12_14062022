@@ -92,7 +92,7 @@ const Performance = (userId) => {
 }
 
 Performance.propTypes = {
-  userId: PropTypes.string.isRequired
+  userId: PropTypes.number.isRequired
 }
 
 export default Performance

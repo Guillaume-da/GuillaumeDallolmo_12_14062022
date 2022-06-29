@@ -80,6 +80,7 @@ const TooltipContainer = styled.div`
 `
 
 const Activity = (userId) => {
+    console.log(userId)
     // const loading = props.loadingValue
     // const data = props.dataValue
 
@@ -208,7 +209,7 @@ const Activity = (userId) => {
 }
 
 Activity.propTypes = {
-  userId: PropTypes.string.isRequired
+  userId: PropTypes.number.isRequired
 }
 
 export default Activity

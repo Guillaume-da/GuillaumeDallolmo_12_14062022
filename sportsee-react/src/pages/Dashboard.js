@@ -45,7 +45,8 @@ const FlexContainer = styled.div`
 const Dashboard = () => {
     const slug = useParams();
     const id = slug.id
-
+    // const integer = parseInt(id, 10);
+    // console.log(integer)
     // const { loading, data } = useFetch(getUserInfo(id))
     
     const [data, setData] = useState(null);
@@ -65,7 +66,8 @@ const Dashboard = () => {
             }
           }
         getUserData()
-    }, [error, id, loading]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
     if(loading) {
         return <Loader />
@@ -85,10 +87,10 @@ const Dashboard = () => {
                 <Message userName={name}/>
                 <FlexContainer>
                   <div>
-                    <Activity userId={id} />
+                    <Activity userId={Number(id)} />
                     <Container>
-                      <Sessions userId={id}/>
-                      <Performance userId={id}/>
+                      <Sessions userId={Number(id)}/>
+                      <Performance userId={Number(id)}/>
                       <Score scoreValue={score}/>
                     </Container>
                   </div>
