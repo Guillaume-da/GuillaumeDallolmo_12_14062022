@@ -12,14 +12,24 @@ const ContainerDivLabel = styled.div`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     padding: 26px 26px 26px 32px;
     margin-bottom: 28px;
-    animation: scale-anim 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     position: relative;
     top: 0;
-    
+    @media (max-width: 1080px) {
+        top: 50px;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    @media (min-width: 1081px) and (max-width: 1380px) {
+        top: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
     @media (min-width: 1380px) {
       margin-bottom: 28px;
       width: 57vw;
     }
+    
     @keyframes scale-anim {
       0% {
           transform: scale(1);
@@ -135,7 +145,7 @@ const Activity = (userId) => {
                     domain={['minData', 'maxData']} 
                     tickMargin={15}
                     tickLine={false}
-                    padding={{ left: -40, right: -40 }}
+                    padding={{ left: 0, right: 0 }}
                     axisLine={{ stroke: '#DEDEDE' }}
                     tick={{ fill: '#9B9EAC', fontSize: '14px' }}
                     tickFormatter={(number) => number + 1}

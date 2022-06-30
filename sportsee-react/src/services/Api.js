@@ -13,6 +13,7 @@ export const getUserInfo = async (id) => {
       
       // console.log("status",response.status)
       if(response.status === 200) {
+        console.log('API working');
         return response.data;
       }
       
@@ -27,7 +28,7 @@ export const getUserInfo = async (id) => {
       //   return response.data;
       // }
     } catch (error) {
-      console.log('API non disponible');
+      console.log('API unavailable');
       const mockedResponse = await USER_MAIN_DATA.filter(x => x.id === +id);
          return {
 			 			data: mockedResponse[0],

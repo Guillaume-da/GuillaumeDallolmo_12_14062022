@@ -29,6 +29,13 @@ const UlLabel = styled.ul`
     font-family: 'Roboto', sans-serif;
     display: flex;
     column-gap: 125px; 
+    @media (max-width: 1380px) {
+        font-size: 18px;
+      }
+    @media (max-width: 1080px) {
+        column-gap: 55px; 
+        font-size: 16px;
+      }
 `
 
 const Header = () => {

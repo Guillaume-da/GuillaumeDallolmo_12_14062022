@@ -12,13 +12,24 @@ const ContainerDivLabel = styled.div`
     @media (min-width: 1380px) {
         flex-direction: column;
     }
+    @media (max-width: 1380px) {
+        flex-wrap: wrap;
+        row-gap: 20px;
+        padding-left: 38px;
+        padding-right: 38px;
+    }
+    @media (max-width: 885px) {
+        justify-content: space-around;
+    }
 `
 const ItemDivLabel = styled.div`
-    background: $grey-color;
+    background: #FBFBFB;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     display: flex;
     column-gap: 24px;
     opacity: 0;
-    padding: auto;
+    padding: 32px 51px 32px 32px;
     animation: scale-anim 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     @keyframes scale-anim {
         0% {
@@ -35,11 +46,19 @@ const ItemDivLabel = styled.div`
             animation-delay: #{$i * 0.15}s;
         }
     }
+    
     @media (min-width: 1024px) {
-        padding: 15px;
+        padding: 28px;
     }
     @media (min-width: 1380px) {
         padding: 32px;
+    }
+    @media (max-width: 885px) {
+        width: 35%;
+        padding: 25px;
+    }
+    @media (max-width: 685px) {
+        width: 100%;
     }
 `
 const ImgLabel = styled.img`

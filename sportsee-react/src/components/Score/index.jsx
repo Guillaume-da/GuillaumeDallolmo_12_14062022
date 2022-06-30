@@ -10,11 +10,27 @@ const ScoreContainer = styled.div`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     display: inline-block;
     position: relative;
+    animation: scale-anim 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 1s;  
+    @keyframes scale-anim {
+        0% {
+            transform: scale(0.85);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+      }
     @media (min-width: 1024px) {
         width: 30%;
     }
     @media (min-width: 1380px) {
         width: 258px;
+    }
+    @media (max-width: 580px) {
+        width: 100%;
+        height: 400px;
     }
 `
 const Title = styled.h2`
@@ -32,6 +48,10 @@ const Background = styled.div`
         background: #FFFFFF;
         height: 60%;
         border-radius: 50%;
+        @media (max-width: 580px) {
+            width: 148px;
+            height: 148px;
+        }
 `
 const PercentScore = styled.div`
         position: absolute;

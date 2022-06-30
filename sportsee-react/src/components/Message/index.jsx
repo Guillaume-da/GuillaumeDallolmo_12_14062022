@@ -5,6 +5,10 @@ import styled from 'styled-components'
 const SpanLabel = styled.span`
     font-size: 48px;
     line-height: 24px;
+    margin-left: 0;
+    @media (max-width: 1380px) {
+        margin-left: 40px;
+    }
 `
 const RedSpanLabel = styled.span`
     font-size: 48px;
@@ -13,6 +17,10 @@ const RedSpanLabel = styled.span`
 `
 const MessageLabel = styled.p`
     margin-top: 48px;
+    margin-left: 0;
+    @media (max-width: 1380px) {
+        margin-left: 40px;
+    }
 `
 
 const Message = (userName) => {

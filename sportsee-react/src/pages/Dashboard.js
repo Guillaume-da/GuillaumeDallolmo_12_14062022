@@ -15,16 +15,30 @@ const MainDivLabel = styled.div`
     padding: 145px 70px 72px 210px;
     height: 100%;
     width: auto;
+    @media (max-width: 1024px) {
+      padding: 159px 34px 88px 160px;
+      width: 100%;
+    }
     @media (min-width: 1024px) {
       padding: 159px 34px 88px 160px;
     }
     @media (min-width: 1380px) {
       padding: 159px 90px 88px 224px;
     }
+    @media (max-width: 1380px) {
+      padding: 150px 0px 60px 0px;
+    }
 `
 const Container = styled.div`
     display: flex;
     justify-content: space-between;
+    @media (max-width: 1380px) {
+      margin-top: 100px;
+    }
+    @media (max-width: 1380px) {
+      flex-wrap: wrap;
+      row-gap: 20px;
+    }
 `
 const FlexContainer = styled.div`
     display: flex;
@@ -84,10 +98,10 @@ const Dashboard = () => {
                 <FlexContainer>
                   <div>
                     <Activity userId={Number(id)} />
-                    <Container>
-                      <Sessions userId={Number(id)}/>
-                      <Performance userId={Number(id)}/>
-                      <Score scoreValue={score}/>
+                    <Container className="anim-container">
+                      <Sessions userId={Number(id)} className="anim-item"/>
+                      <Performance userId={Number(id)} className="anim-item"/>
+                      <Score scoreValue={score} className="anim-item"/>
                     </Container>
                   </div>
                   <GeneralInformations

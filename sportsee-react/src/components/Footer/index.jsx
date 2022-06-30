@@ -16,17 +16,31 @@ const AsideLabel = styled.aside`
     z-index: 500;
     height: 100%;
     top: 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    @media (max-width: 1380px) {
+        height: 100px;
+        width: 100%;
+        top: unset;
+        bottom: 0;
+      }
 `
 const DivLabel = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 20px;
+    @media (max-width: 1380px) {
+        flex-direction: row;
+        column-gap: 20px;
+      }
 `
 const ImgLabel = styled.img`
     width: 64px;
     height: 64px;
+    @media (max-width: 1380px) {
+        width: 50px;
+        height: 50px;
+      }
 `
 
 const Footer = () => {
