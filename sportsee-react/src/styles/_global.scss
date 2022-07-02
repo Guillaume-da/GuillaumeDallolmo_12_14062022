@@ -12,3 +12,7 @@ body {
         animation-delay: #{$i * 0.25}s;
     }
 }
+
+.show-nav {
+    right: 0 !important;
+}

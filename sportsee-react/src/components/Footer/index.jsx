@@ -5,6 +5,21 @@ import bikeIcon from '../../assets/bike-icon.png'
 import weightIcon from '../../assets/weight-icon.png'
 import styled from 'styled-components'
 
+const Footer = () => {
+    return (
+        <div>
+            <AsideLabel>
+                <DivLabel>
+                    <ImgLabel src={yogaIcon} alt="" />
+                    <ImgLabel src={swimmingIcon} alt="" />
+                    <ImgLabel src={bikeIcon} alt="" />
+                    <ImgLabel src={weightIcon} alt="" />
+                </DivLabel>
+            </AsideLabel>
+        </div> 
+    );
+};
+
 const AsideLabel = styled.aside`
     display: flex;
     flex-direction: column;
@@ -42,20 +57,5 @@ const ImgLabel = styled.img`
         height: 50px;
       }
 `
-
-const Footer = () => {
-    return (
-        <div>
-            <AsideLabel>
-                <DivLabel>
-                    <ImgLabel src={yogaIcon} alt="" />
-                    <ImgLabel src={swimmingIcon} alt="" />
-                    <ImgLabel src={bikeIcon} alt="" />
-                    <ImgLabel src={weightIcon} alt="" />
-                </DivLabel>
-            </AsideLabel>
-        </div> 
-    );
-};
 
 export default Footer;

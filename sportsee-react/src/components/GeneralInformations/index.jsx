@@ -5,11 +5,67 @@ import fatIcon from '../../assets/fat-icon.png'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+/**
+* Allows to show calories, protein, carbohydrate, lipid
+*
+* @param {caloriesValue} number - number of calories
+* @param {proteinValue} number - number of protein
+* @param {carbohydrateValue} number - number of carbohydrate
+* @param {lipidValue} number - number of lipid
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
+
+const GeneralInformations = ({ caloriesValue, proteinValue, carbohydrateValue, lipidValue }) => {
+
+        return (
+            <ContainerDivLabel className="main__flex-container-sidebar">
+                <ItemDivLabel className="main__sidebar-item">
+                    <ImgLabel src={caloriesIcon} alt="Calories" />
+                    <TextDivLabel>
+                        <span>{caloriesValue}Cal</span>
+                        <SpanLabel>calories</SpanLabel>
+                    </TextDivLabel>
+                </ItemDivLabel>
+                <ItemDivLabel className="main__sidebar-item">
+                    <ImgLabel src={proteinIcon} alt="Protéines" />
+                    <TextDivLabel>
+                        <span>{proteinValue}g</span>
+                        <SpanLabel>Proteines</SpanLabel>
+                    </TextDivLabel>
+                </ItemDivLabel>
+                <ItemDivLabel className="main__sidebar-item">
+                    <ImgLabel src={carbsIcon} alt="Glucides" />
+                    <TextDivLabel>
+                        <span>{carbohydrateValue}g</span>
+                        <SpanLabel>glucides</SpanLabel>
+                    </TextDivLabel>
+                 </ItemDivLabel>
+                <ItemDivLabel className="main__sidebar-item">
+                    <ImgLabel src={fatIcon} alt="Lipides" />
+                    <TextDivLabel>
+                        <span>{lipidValue}g</span>
+                        <SpanLabel>lipides</SpanLabel>
+                    </TextDivLabel>
+                </ItemDivLabel>
+            </ContainerDivLabel>
+        )
+}
+
+GeneralInformations.propTypes = {
+    caloriesValue: PropTypes.number.isRequired,
+    proteinValue: PropTypes.number.isRequired,
+    carbohydrateValue: PropTypes.number.isRequired,
+    lipidValue: PropTypes.number.isRequired
+}
+
 const ContainerDivLabel = styled.div`
     flex-direction: row;
     display: flex;
     justify-content: space-between;
-    @media (min-width: 1380px) {
+    @media (min-width: 1080px) {
         flex-direction: column;
     }
     @media (max-width: 1380px) {
@@ -75,48 +131,5 @@ const SpanLabel = styled.span`
     color: #74798C;
     font-size: 14px;
 `
-
-const GeneralInformations = ({ caloriesValue, proteinValue, carbohydrateValue, lipidValue }) => {
-
-        return (
-            <ContainerDivLabel className="main__flex-container-sidebar">
-                <ItemDivLabel className="main__sidebar-item">
-                    <ImgLabel src={caloriesIcon} alt="Calories" />
-                    <TextDivLabel>
-                        <span>{caloriesValue}Cal</span>
-                        <SpanLabel>calories</SpanLabel>
-                    </TextDivLabel>
-                </ItemDivLabel>
-                <ItemDivLabel className="main__sidebar-item">
-                    <ImgLabel src={proteinIcon} alt="Protéines" />
-                    <TextDivLabel>
-                        <span>{proteinValue}g</span>
-                        <SpanLabel>Proteines</SpanLabel>
-                    </TextDivLabel>
-                </ItemDivLabel>
-                <ItemDivLabel className="main__sidebar-item">
-                    <ImgLabel src={carbsIcon} alt="Glucides" />
-                    <TextDivLabel>
-                        <span>{carbohydrateValue}g</span>
-                        <SpanLabel>glucides</SpanLabel>
-                    </TextDivLabel>
-                 </ItemDivLabel>
-                <ItemDivLabel className="main__sidebar-item">
-                    <ImgLabel src={fatIcon} alt="Lipides" />
-                    <TextDivLabel>
-                        <span>{lipidValue}g</span>
-                        <SpanLabel>lipides</SpanLabel>
-                    </TextDivLabel>
-                </ItemDivLabel>
-            </ContainerDivLabel>
-        )
-}
-
-GeneralInformations.propTypes = {
-    caloriesValue: PropTypes.number.isRequired,
-    proteinValue: PropTypes.number.isRequired,
-    carbohydrateValue: PropTypes.number.isRequired,
-    lipidValue: PropTypes.number.isRequired
-}
 
 export default GeneralInformations

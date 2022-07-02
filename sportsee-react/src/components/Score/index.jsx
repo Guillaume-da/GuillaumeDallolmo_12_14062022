@@ -2,9 +2,59 @@ import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+/**
+* Allows to show score of user
+*
+* @param {scoreValue} number - number of the score of user
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
+
+const Score = (scoreValue)=> {
+    const formatedData = [
+        { name: "score", value: scoreValue.scoreValue, stroke: "#FF0000"},
+        { name: "score", value: 1 - scoreValue.scoreValue, stroke: 'transparent' }
+    ]
+    const percentScore = scoreValue.scoreValue * 100
+   
+    return (
+        <ScoreContainer>
+            <Title>Score</Title>
+            <Background>
+                <PercentScore>{percentScore}% <PercentText>de votre objectif</PercentText></PercentScore>
+            </Background>
+            <ResponsiveContainer width="100%" height="100%" borderRadius="5px">
+                <PieChart>
+                    <Pie
+                    data={formatedData}
+                    dataKey="value"
+                    nameKey="name"
+                    cx="50%"
+                    cy="50%"
+                    innerRadius="68%"
+                    outerRadius="68%"
+                    fill="#FF0000"
+                    startAngle={90}
+                    endAngle={470}
+                    strokeWidth={10}
+                    
+                    radius={[50, 50, 0, 0]}
+                    />
+                </PieChart>
+            </ResponsiveContainer>
+        </ScoreContainer>
+    )
+}
+
+Score.propTypes = {
+    scoreValue: PropTypes.number.isRequired
+}
+
 const ScoreContainer = styled.div`
     border-radius: 5px;
-    width: auto;
+    width: 258px;
     height: 263px;
     background: #FBFBFB;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
@@ -22,12 +72,13 @@ const ScoreContainer = styled.div`
             opacity: 1;
         }
       }
-    @media (min-width: 1024px) {
-        width: 30%;
-    }
     @media (min-width: 1380px) {
         width: 258px;
     }
+    @media (min-width: 1024px) {
+        width: 30%;
+    }
+    
     @media (max-width: 580px) {
         width: 100%;
         height: 400px;
@@ -44,9 +95,9 @@ const Background = styled.div`
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 60%;
+        width: 159px;
         background: #FFFFFF;
-        height: 60%;
+        height: 159px;
         border-radius: 50%;
         @media (max-width: 580px) {
             width: 148px;
@@ -73,44 +124,5 @@ const PercentText = styled.span`
         margin-top: 5px;
         color: #74798C;
 `
-
-const Score = (scoreValue)=> {
-    const formatedData = [
-        { name: "score", value: scoreValue.scoreValue, stroke: "#FF0000"},
-        { name: "score", value: 1 - scoreValue.scoreValue, stroke: 'transparent' }
-    ]
-    const percentScore = scoreValue.scoreValue * 100
-   
-    return (
-        <ScoreContainer>
-            <Title>Score</Title>
-            <Background>
-                <PercentScore>{percentScore}% <PercentText>de votre objectif</PercentText></PercentScore>
-            </Background>
-            <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                    <Pie
-                    data={formatedData}
-                    dataKey="value"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    innerRadius="68%"
-                    outerRadius="68%"
-                    fill="#FF0000"
-                    startAngle={90}
-                    endAngle={470}
-                    strokeWidth={10}
-                    radius={[50, 50, 0, 0]}
-                    />
-                </PieChart>
-            </ResponsiveContainer>
-        </ScoreContainer>
-    )
-}
-
-Score.propTypes = {
-    scoreValue: PropTypes.number.isRequired
-}
 
 export default Score

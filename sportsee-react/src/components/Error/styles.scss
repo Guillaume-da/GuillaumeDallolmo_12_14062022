@@ -1,0 +1,36 @@
+@import '../../styles/index.scss';
+
+.error-page {
+    color: #FF0101;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 117px;
+    &__title {
+        font-size: 96px;
+        font-weight: 700;
+        display: inline-block;
+        margin-top: 145px;
+        text-align: center;
+        width: 100%;
+        
+    }
+    &__text-content {
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        
+    }
+    &__back-to-home {
+        color: #FF0101;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 133px;
+        text-decoration: underline;
+        margin-bottom: 103px;
+        
+    }
+}

@@ -1,5 +1,13 @@
 import styled from 'styled-components'
 
+const Loader = () => {
+  return (
+    <DivLabel>
+        <DivContentLabel></DivContentLabel>
+    </DivLabel>
+  );
+}
+
 const DivLabel = styled.div`
         justify-content: center;
         align-items: center;
@@ -31,13 +39,5 @@ const DivContentLabel = styled.div`
           }
         }
 `
-
-const Loader = () => {
-  return (
-    <DivLabel>
-        <DivContentLabel></DivContentLabel>
-    </DivLabel>
-  );
-}
 
 export default Loader;

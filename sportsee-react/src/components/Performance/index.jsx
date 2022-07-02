@@ -5,35 +5,19 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useFetch from '../../hooks/useFetch'
 
-const RadarDivLabel = styled.div`
-    border-radius: 5px;
-    width: 258px;
-    height: 263px;
-    background: #282D30;
-    display: inline-block;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-    animation: scale-anim 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation-delay: 0.75s;  
-    @keyframes scale-anim {
-        0% {
-            transform: scale(0.85);
-            opacity: 0;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
-    @media (max-width: 580px) {
-      width: 100%;
-      height: 350px;
-    }
-`
+/**
+* Allows to show performance user
+*
+* @param {userId} number - number ID of the user 
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
 
 const Performance = (userId) => {
     
     const { loading, data } = useFetch(getUserPerformance(userId.userId))
-    
 
     if(loading) return <Loader />
     
@@ -91,5 +75,30 @@ const Performance = (userId) => {
 Performance.propTypes = {
   userId: PropTypes.number.isRequired
 }
+
+const RadarDivLabel = styled.div`
+    border-radius: 5px;
+    width: 258px;
+    height: 263px;
+    background: #282D30;
+    display: inline-block;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    animation: scale-anim 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 0.75s;  
+    @keyframes scale-anim {
+        0% {
+            transform: scale(0.85);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @media (max-width: 580px) {
+      width: 100%;
+      height: 350px;
+    }
+`
 
 export default Performance

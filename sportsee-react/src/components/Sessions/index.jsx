@@ -5,60 +5,15 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useFetch from '../../hooks/useFetch'
 
-const Container = styled.div`
-    border-radius: 5px;
-    width: auto;
-    height: 263px;
-    background: #FF0000;
-    display: inline-block;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-    animation: scale-anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation-delay: 0.5s;  
-    @keyframes scale-anim {
-        0% {
-            transform: scale(0.85);
-            opacity: 0;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
-    @media (min-width: 1024px) {
-      width: 30%;
-    }
-    @media (min-width: 1380px) {
-      width: 258px;
-    }
-    @media (max-width: 580px) {
-        width: 100%;
-        height: 350px;
-      }
-`
-const Title = styled.h2`
-    color: white;
-    font-size: 15px;
-    line-height: 24px;
-    margin-top: 29px;
-    margin-left: 34px;
-    opacity: 0.5;
-    width: 147px;
-    position: absolute;
-`
-const SessionsCustomTooltip = styled.div`
-    background: #FFFFFF;
-    color: black;
-    font-size: 8px;
-    font-weight: 500;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    padding: 0 10px;
-    margin-left: 0;
-    margin-right: 0;
-`
+/**
+* Allows to show sessions duration of the user
+*
+* @param userId number of the user ID
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
 
 const Sessions = (userId) => {
     
@@ -135,5 +90,60 @@ const Sessions = (userId) => {
 Sessions.propTypes = {
     userId: PropTypes.number.isRequired
 }
+
+const Container = styled.div`
+    border-radius: 5px;
+    width: auto;
+    height: 263px;
+    background: #FF0000;
+    display: inline-block;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    animation: scale-anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 0.5s;  
+    @keyframes scale-anim {
+        0% {
+            transform: scale(0.85);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @media (min-width: 1024px) {
+      width: 30%;
+    }
+    @media (min-width: 1380px) {
+      width: 258px;
+    }
+    @media (max-width: 985px) {
+        width: 100%;
+        height: 350px;
+      }
+`
+const Title = styled.h2`
+    color: white;
+    font-size: 15px;
+    line-height: 24px;
+    margin-top: 29px;
+    margin-left: 34px;
+    opacity: 0.5;
+    width: 147px;
+    position: absolute;
+`
+const SessionsCustomTooltip = styled.div`
+    background: #FFFFFF;
+    color: black;
+    font-size: 8px;
+    font-weight: 500;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 0;
+    margin-right: 0;
+`
 
 export default Sessions
