@@ -2,12 +2,12 @@
 
 .error-page {
     color: #FF0101;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 117px;
+    
     &__title {
         font-size: 96px;
         font-weight: 700;
