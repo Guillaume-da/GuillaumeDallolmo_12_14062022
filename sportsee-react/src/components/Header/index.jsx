@@ -30,6 +30,7 @@ const Header = () => {
 
 const HeaderLabel = styled.header`
     background: #020203;
+    transition: all ease-in-out;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -65,10 +66,12 @@ const UlLabel = styled.ul`
         flex-direction: column;
         justify-content: center;
         position: fixed;
-        right: -100vw;
+        left: 0;
+        transform: translateX(-100vw);
         bottom: 0;
         height: 100vh;
         background: black;
+        opacity: 0.8;
         color: white;
         align-items: center;
         width: 100vw;

@@ -14,5 +14,6 @@ body {
 }
 
 .show-nav {
-    right: 0 !important;
+    transform: translateX(0) !important;
+    transition: all 0.8s ease-in-out;
 }
