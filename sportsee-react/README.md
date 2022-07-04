@@ -1,4 +1,6 @@
-# General information
+# Sportsee - React application
+
+## General information
 
 This project is made for working with an API. You can find it here: [Backend](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)
 
