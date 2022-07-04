@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import useFetch from '../../hooks/useFetch'
 
 /**
-* Allows to show activity user
+* Allows to show activity sessions of the user (day, kilogram, calories)
 *
 * @param {userId} number - user ID of the user
 *

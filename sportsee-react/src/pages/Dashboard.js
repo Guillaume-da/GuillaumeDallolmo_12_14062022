@@ -12,7 +12,7 @@ import styled from 'styled-components'
 import Performance from '../components/Performance'
 
 /**
-* Allows to show Dashboard page
+* Allows to show Dashboard page.
 *
 * @return jsx
 * @author Guillaume
@@ -27,6 +27,7 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // Allows to get user datas on loading page
     useEffect(() => {
         const getUserData = async () => {
             try {

@@ -22,7 +22,6 @@ const Header = () => {
             <ImgLabel src={logo} alt="logo"  />
             <NavLabel >
                 <UlLabel className={` ${showLinks ? "show-nav" : "hide-nav"} `}>
-                    
                     <LinkLabel>Accueil</LinkLabel>
                     <LinkLabel>Profil</LinkLabel>
                     <LinkLabel>Réglage</LinkLabel>

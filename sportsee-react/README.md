@@ -1,3 +1,8 @@
+# General information
+
+This project is made for working with an API. You can find it here: [Backend](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
