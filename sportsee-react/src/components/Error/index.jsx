@@ -1,5 +1,13 @@
 import './styles.scss';
 
+/**
+* Allows to show 404 error
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
+
 const Error = () => {
     return (
         <main className="error-page">

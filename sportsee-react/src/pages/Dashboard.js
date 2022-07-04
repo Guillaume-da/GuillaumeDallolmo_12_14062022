@@ -11,11 +11,17 @@ import { getUserInfo } from '../services/Api';
 import styled from 'styled-components'
 import Performance from '../components/Performance'
 
+/**
+* Allows to show Dashboard page
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
+
 const Dashboard = () => {
     const slug = useParams();
     const id = slug.id
-    
-    // const { loading, data } = useFetch(getUserInfo(id))
     
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);

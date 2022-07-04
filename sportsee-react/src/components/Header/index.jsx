@@ -3,6 +3,14 @@ import logo from '../../assets/logo.png'
 import styled from 'styled-components'
 import '../../styles/index.scss';
 
+/**
+* Allows to show Header
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
+
 const Header = () => {
     const [showLinks, setShowLinks] = useState(false)
     const handleShowLinks = () => {

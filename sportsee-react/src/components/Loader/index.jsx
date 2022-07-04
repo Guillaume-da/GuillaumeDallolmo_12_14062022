@@ -1,5 +1,13 @@
 import styled from 'styled-components'
 
+/**
+* Allows to show loader
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
+
 const Loader = () => {
   return (
     <DivLabel>

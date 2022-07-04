@@ -5,6 +5,15 @@ import bikeIcon from '../../assets/bike-icon.png'
 import weightIcon from '../../assets/weight-icon.png'
 import styled from 'styled-components'
 
+/**
+* Allows to show Footer
+*
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
+
 const Footer = () => {
     return (
         <div>

@@ -8,19 +8,16 @@ const apiBaseUrl = axios.create({
 
 let mockedDatas = null
 
-// Add a response interceptor
-apiBaseUrl.interceptors.response.use(function (response) {
-  // Any status code that lie within the range of 2xx cause this function to trigger
-  // Do something with response data
-  // console.log(response.status)
-  return response;
-}, function (error) {
-  // Any status codes that falls outside the range of 2xx cause this function to trigger
-  // Do something with response error
-  // console.log(error)
-  
-  return Promise.reject(error);
-});
+/**
+* Allows to get first name, last name, age, today score, calories count, protein count, carbohydrate count and lipid count.
+* This function allow to know if API is working. 
+*
+* @param {userId} number - number ID of the user 
+*
+* @return data response if API available or data from mock if API unavailable
+* @author Guillaume
+* @version 1.0
+*/
 
 export const getUserInfo = async (id) => {
     try {
@@ -34,6 +31,7 @@ export const getUserInfo = async (id) => {
       }
     } catch (error) {
       console.log('API unavailable');
+      
       mockedDatas = true
       const mockedResponse = await USER_MAIN_DATA.filter(x => x.id === +id);
          return {
@@ -41,6 +39,16 @@ export const getUserInfo = async (id) => {
 			   }
     }
 };
+
+/**
+* Allows to get activity sessions of the user
+*
+* @param {userId} number - number ID of the user 
+*
+* @return data response if API available or data from mock if API unavailable
+* @author Guillaume
+* @version 1.0
+*/
 
 export const getUserActivity = async (id) => {
   try {
@@ -59,6 +67,16 @@ export const getUserActivity = async (id) => {
   }
 }
 
+/**
+* Allows to get performance values of the user: cardio, energy, endurance, strength, speed, intensity.
+*
+* @param {userId} number - number ID of the user 
+*
+* @return data response if API available or data from mock if API unavailable
+* @author Guillaume
+* @version 1.0
+*/
+
 export const getUserPerformance = async (id) => {
   try {
     if(mockedDatas) {
@@ -75,6 +93,16 @@ export const getUserPerformance = async (id) => {
     console.log(error);
   }
 } 
+
+/**
+* Allows to get average sessions of the user
+*
+* @param {userId} number - number ID of the user 
+*
+* @return data response if API available or data from mock if API unavailable
+* @author Guillaume
+* @version 1.0
+*/
 
 export const getUserAverageSessions = async (id) => {
   try {
