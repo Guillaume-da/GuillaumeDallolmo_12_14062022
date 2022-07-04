@@ -2,6 +2,8 @@
 
 ## General information
 
+Sportsee allows to access to a sports analytics dashboard made with React and recharts.
+
 This project is made for working with an API. You can find it here: [Backend](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)
 
 
