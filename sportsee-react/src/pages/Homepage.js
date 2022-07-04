@@ -1,13 +1,5 @@
 import styled from 'styled-components'
 
-/**
-* Allows to show Home page
-*
-* @return jsx
-* @author Guillaume
-* @version 1.0
-*/
-
 const Dashboard = () => {
     return (
         <MainDivLabel>

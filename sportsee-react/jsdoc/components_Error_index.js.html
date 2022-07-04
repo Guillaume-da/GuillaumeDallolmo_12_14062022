@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Error/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,37 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Error/index.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import './styles.scss';
 
+/**
+* Allows to show 404 error
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
 
-    <h3> </h3>
+const Error = () => {
+    return (
+        &lt;main className="error-page">
+            &lt;h1 className="error-page__title">404&lt;/h1>
+            &lt;p className="error-page__text-content">Oups! La page que vous demandez n'existe pas.&lt;/p>
+        &lt;/main>
+    )
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default Error</code></pre>
+        </article>
+    </section>
 
 
 

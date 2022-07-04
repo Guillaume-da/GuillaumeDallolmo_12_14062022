@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Message/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,76 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Message/index.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
+/**
+* Allows to show welcome message
+*
+* @param {userName} string - name of user
+*
+* @return jsx
+* @author Guillaume
+* @version 1.0
+*/
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
+const Message = (userName) => {
     
+    return (
+        &lt;div>
+            &lt;SpanLabel>Bonjour&lt;/SpanLabel> &lt;RedSpanLabel>{userName.userName}&lt;/RedSpanLabel>
+            &lt;MessageLabel>Félicitation ! Vous avez explosé vos objectifs hier 👏&lt;/MessageLabel>
+        &lt;/div>
+    );
+};
 
 
+Message.propTypes = {
+    userName: PropTypes.string.isRequired
+}
 
+const SpanLabel = styled.span`
+    font-size: 48px;
+    line-height: 24px;
+    margin-left: 0;
+    @media (max-width: 1380px) {
+        margin-left: 40px;
+    }
+    @media (max-width: 980px) {
+        font-size: 38px;
+    }
+`
+const RedSpanLabel = styled.span`
+    font-size: 48px;
+    color: #FF0101;
+    line-height: 24px;
+    margin-left: 10px;
+    @media (max-width: 980px) {
+        font-size: 38px;
+    }
+`
+const MessageLabel = styled.p`
+    margin-top: 48px;
+    margin-left: 0;
+    @media (max-width: 1380px) {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+`
 
-
+export default Message;</code></pre>
+        </article>
+    </section>
 
 
 
