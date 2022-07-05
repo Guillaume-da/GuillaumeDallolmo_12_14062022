@@ -8,16 +8,15 @@ import styled from 'styled-components'
 /**
 * Allows to show calories, protein, carbohydrate, lipid
 *
-* @param {caloriesValue} number - number of calories
-* @param {proteinValue} number - number of protein
-* @param {carbohydrateValue} number - number of carbohydrate
-* @param {lipidValue} number - number of lipid
+* @param {number} caloriesValue - number of calories
+* @param {number} proteinValue - number of protein
+* @param {number} carbohydrateValue - number of carbohydrate
+* @param {number} lipidValue - number of lipid
 *
 * @return jsx
 * @author Guillaume
 * @version 1.0
 */
-
 const GeneralInformations = ({ caloriesValue, proteinValue, carbohydrateValue, lipidValue }) => {
 
         return (

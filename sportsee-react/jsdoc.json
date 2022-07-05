@@ -11,8 +11,9 @@
         "monospaceLinks": true
     },
     "opts": {           
-        "destination": "./jsdoc",          
-        "recurse": true
+        "destination": "./docs/",          
+        "recurse": true,
+        "template": "custom-template"
     }
     
 }

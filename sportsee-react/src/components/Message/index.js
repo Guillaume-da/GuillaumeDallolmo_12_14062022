@@ -5,7 +5,7 @@ import styled from 'styled-components'
 /**
 * Allows to show welcome message
 *
-* @param {userName} string - name of user
+* @param {string} userName - name of user
 *
 * @return jsx
 * @author Guillaume

@@ -8,7 +8,7 @@ import useFetch from '../../hooks/useFetch'
 /**
 * Allows to show performance user
 *
-* @param {userId} number - number ID of the user 
+* @param {number} userId - number ID of the user 
 *
 * @return jsx
 * @author Guillaume
