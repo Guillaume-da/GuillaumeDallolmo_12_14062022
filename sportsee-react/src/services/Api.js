@@ -8,7 +8,7 @@ import {
 import axios from "axios";
 
 const apiBaseUrl = axios.create({
-  baseURL: `"${process.env.REACT_APP_API}"`,
+  baseURL: "http://localhost:3000/user",
   method: "GET",
 });
 
@@ -28,9 +28,10 @@ let mockedDatas = null;
 export const getUserInfo = async (id) => {
   try {
     const response = await apiBaseUrl.get(`/${id}`);
+    console.log(response.status)
     if (response.status === 200) {
       console.log("API working");
-      console.log(apiBaseUrl)
+      
       mockedDatas = false;
       return response.data;
     } else {
