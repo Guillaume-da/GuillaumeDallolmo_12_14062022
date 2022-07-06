@@ -30,6 +30,7 @@ export const getUserInfo = async (id) => {
     const response = await apiBaseUrl.get(`/${id}`);
     if (response.status === 200) {
       console.log("API working");
+      console.log(apiBaseUrl)
       mockedDatas = false;
       return response.data;
     } else {
