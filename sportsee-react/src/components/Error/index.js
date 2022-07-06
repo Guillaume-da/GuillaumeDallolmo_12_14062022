@@ -14,7 +14,7 @@ const Error = () => {
     <MainLabel>
       <TitleLabel>404</TitleLabel>
       <ParagraphLabel>
-        Oups! La page que vous demandez n`&lsquo;`existe pas.
+        Oups! La page que vous demandez n&apos;existe pas.
       </ParagraphLabel>
     </MainLabel>
   );

@@ -18,8 +18,8 @@ import Performance from "../components/Performance";
  * @return jsx
  * @author Guillaume
  * @version 1.0
+ * 
  */
-
 const Dashboard = () => {
   const slug = useParams();
   const id = slug.id;

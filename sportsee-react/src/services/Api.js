@@ -8,7 +8,7 @@ import {
 import axios from "axios";
 
 const apiBaseUrl = axios.create({
-  baseURL: "http://localhost:3000/user",
+  baseURL: `"${process.env.REACT_APP_API}"`,
   method: "GET",
 });
 
