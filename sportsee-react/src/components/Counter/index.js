@@ -22,7 +22,7 @@ const Counter = (count) => {
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={caloriesIcon} alt="Calories" />
         <TextDivLabel>
-          <span>{count.count}Cal</span>
+          <span>{count.count.toLocaleString('en-US')}kCal</span>
           <SpanLabel>calories</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
@@ -32,7 +32,7 @@ const Counter = (count) => {
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={proteinIcon} alt="Calories" />
         <TextDivLabel>
-          <span>{count.count}g</span>
+          <span>{count.count.toLocaleString('en-US')}g</span>
           <SpanLabel>Proteines</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
@@ -52,7 +52,7 @@ const Counter = (count) => {
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={fatIcon} alt="Calories" />
         <TextDivLabel>
-          <span>{count.count}g</span>
+          <span>{count.count.toLocaleString('en-US')}g</span>
           <SpanLabel>Lipides</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>

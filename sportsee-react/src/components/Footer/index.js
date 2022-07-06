@@ -24,6 +24,7 @@ const Footer = () => {
           <ImgLabel src={weightIcon} alt="" />
         </DivLabel>
       </AsideLabel>
+      <span>Copyright, SportSee 2020</span>
     </div>
   );
 };
