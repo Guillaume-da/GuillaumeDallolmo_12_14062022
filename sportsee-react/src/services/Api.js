@@ -1,4 +1,4 @@
-// @ts-check
+
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
