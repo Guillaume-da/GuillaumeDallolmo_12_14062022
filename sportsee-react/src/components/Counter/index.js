@@ -42,7 +42,7 @@ const Counter = (count) => {
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={carbsIcon} alt="Calories" />
         <TextDivLabel>
-          <span>{count.count}g</span>
+          <span>{count.count.toLocaleString('en-US')}g</span>
           <SpanLabel>Glucides</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
@@ -89,7 +89,7 @@ const ItemDivLabel = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding: 28px;
+    padding: 24px;
   }
   @media (min-width: 1380px) {
     padding: 32px;

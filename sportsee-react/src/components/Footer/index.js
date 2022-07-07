@@ -24,7 +24,7 @@ const Footer = () => {
           <ImgLabel src={weightIcon} alt="" />
         </DivLabel>
       </AsideLabel>
-      <span>Copyright, SportSee 2020</span>
+      <SpanLabel>Copyright, SportSee 2020</SpanLabel>
     </div>
   );
 };
@@ -47,6 +47,9 @@ const AsideLabel = styled.aside`
     top: unset;
     bottom: 0;
   }
+  @media (max-width: 880px) {
+    height: 115px;
+  }
 `;
 const DivLabel = styled.div`
   display: flex;
@@ -66,5 +69,29 @@ const ImgLabel = styled.img`
     height: 50px;
   }
 `;
+const SpanLabel = styled.span`
+  color: white;
+  font-size: 12px;
+  font-weight: 300;
+  transform: rotate(-90deg);
+  z-index: 700;
+  position: fixed;
+  left: -15px;
+  bottom: 120px;
+  @media (max-width: 1380px) {
+    transform: rotate(0);
+    color: white;
+    bottom: 40px;
+    right: 80px;
+    left: unset;
+    z-index: 700;
+  }
+  @media (max-width: 880px) {
+    left: 50%;
+    transform: translateX(-50%);
+    right: unset;
+    bottom: 10px;
+  }
+`
 
 export default Footer;

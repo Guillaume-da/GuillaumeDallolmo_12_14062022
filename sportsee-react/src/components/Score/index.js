@@ -11,6 +11,7 @@ import styled from "styled-components";
  * @return jsx
  * @author Guillaume
  * @version 1.0
+ * 
  */
 
 const Score = (scoreValue) => {

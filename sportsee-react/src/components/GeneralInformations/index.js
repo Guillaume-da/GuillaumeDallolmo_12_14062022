@@ -53,8 +53,8 @@ const ContainerDivLabel = styled.div`
   @media (max-width: 1380px) {
     flex-wrap: wrap;
     row-gap: 20px;
-    padding-left: 31px;
-    padding-right: 31px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
   @media (max-width: 885px) {
     justify-content: space-around;

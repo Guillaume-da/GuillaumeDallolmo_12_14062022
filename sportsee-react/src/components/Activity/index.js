@@ -24,7 +24,6 @@ import useFetch from "../../hooks/useFetch";
  * @version 1.0
  * 
  */
-
 const Activity = (userId) => {
   const { loading, data } = useFetch(getUserActivity(userId.userId));
 
