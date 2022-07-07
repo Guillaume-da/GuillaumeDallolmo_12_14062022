@@ -2,13 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 /**
- * Allows to show loader
+ * Allows to show Loader component
  *
  * @return jsx
  * @author Guillaume
  * @version 1.0
  */
-
 const Loader = () => {
   return (
     <DivLabel>

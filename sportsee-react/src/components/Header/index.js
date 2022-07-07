@@ -5,12 +5,11 @@ import styled from 'styled-components';
 import '../../styles/index.scss';
 
 /**
- * Allows to show Header
+ * Allows to show Header Component
  *
  * @return jsx
  * @author Guillaume
  * @version 1.0
- * 
  */
 const Header = () => {
   const [showLinks, setShowLinks] = useState(false);

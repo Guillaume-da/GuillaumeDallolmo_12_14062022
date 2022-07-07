@@ -4,16 +4,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 /**
- * Allows to show score of user
- *
+ * Allows to show Score component
  * @param {number} scoreValue - number of the score of user
  *
  * @return jsx
  * @author Guillaume
  * @version 1.0
- * 
  */
-
 const Score = (scoreValue) => {
   const formatedData = [
     { name: 'score', value: scoreValue.scoreValue, stroke: '#FF0000' },

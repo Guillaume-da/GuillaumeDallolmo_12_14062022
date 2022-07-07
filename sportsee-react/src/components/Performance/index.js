@@ -14,7 +14,7 @@ import styled from 'styled-components';
 import useFetch from '../../hooks/useFetch';
 
 /**
- * Allows to show performance user
+ * Allows to show Performance component
  *
  * @param {number} userId - number ID of the user
  *
@@ -22,7 +22,6 @@ import useFetch from '../../hooks/useFetch';
  * @author Guillaume
  * @version 1.0
  */
-
 const Performance = (userId) => {
   const { loading, data } = useFetch(getUserPerformance(userId.userId));
 

@@ -17,3 +17,8 @@ body {
     transform: translateX(0) !important;
     transition: all 0.8s ease-in-out;
 }
+
+.hide-nav {
+    transform: translateX(-100%) !important;
+    transition: all 0.8s ease-in-out;
+}

@@ -15,14 +15,13 @@ import styled from 'styled-components';
 import useFetch from '../../hooks/useFetch';
 
 /**
- * Allows to show sessions duration of the user
+ * Allows to show Sessions component
  *
  * @param {number} userId
  *
  * @return jsx
  * @author Guillaume
  * @version 1.0
- * 
  */
 const Sessions = (userId) => {
   const { loading, data } = useFetch(getUserAverageSessions(userId.userId));

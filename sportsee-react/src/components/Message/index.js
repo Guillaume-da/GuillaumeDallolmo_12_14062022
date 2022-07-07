@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 /**
- * Allows to show welcome message
+ * Allows to show Message component
  *
  * @param {string} userName - name of user
  *
@@ -11,7 +11,6 @@ import styled from 'styled-components';
  * @author Guillaume
  * @version 1.0
  */
-
 const Message = (userName) => {
   return (
     <div>
