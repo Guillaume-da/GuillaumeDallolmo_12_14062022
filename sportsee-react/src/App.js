@@ -1,10 +1,10 @@
-import { React } from "react";
-import Dashboard from "./pages/Dashboard";
-import HomePage from "./pages/Homepage";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Error from "./components/Error";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { React } from 'react';
+import Dashboard from './pages/Dashboard';
+import HomePage from './pages/Homepage';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Error from './components/Error';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 function App() {
   const location = useLocation();

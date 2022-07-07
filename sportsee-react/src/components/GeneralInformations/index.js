@@ -1,7 +1,7 @@
 import React from 'react';
-import Counter from "../Counter";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import Counter from '../Counter';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 /**
  * Allows to show calories, protein, carbohydrate, lipid

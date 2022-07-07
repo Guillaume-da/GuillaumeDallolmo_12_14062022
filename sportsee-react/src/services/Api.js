@@ -4,12 +4,12 @@ import {
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
-} from "../data/mockedDatas.js";
-import axios from "axios";
+} from '../data/mockedDatas.js';
+import axios from 'axios';
 
 const apiBaseUrl = axios.create({
-  baseURL: "http://localhost:3000/user",
-  method: "GET",
+  baseURL: 'http://localhost:3000/user',
+  method: 'GET',
 });
 
 let mockedDatas = null;
@@ -30,7 +30,7 @@ export const getUserInfo = async (id) => {
     const response = await apiBaseUrl.get(`/${id}`);
     console.log(response.status)
     if (response.status === 200) {
-      console.log("API working");
+      console.log('API working');
       
       mockedDatas = false;
       return response.data;
@@ -38,7 +38,7 @@ export const getUserInfo = async (id) => {
       mockedDatas = true;
     }
   } catch (error) {
-    console.log("API unavailable");
+    console.log('API unavailable');
     mockedDatas = true;
     const mockedResponse = await USER_MAIN_DATA.filter((x) => x.id === +id);
     return {

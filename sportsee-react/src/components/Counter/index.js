@@ -1,10 +1,10 @@
 import React from 'react';
-import caloriesIcon from "../../assets/calories-icon.png";
-import proteinIcon from "../../assets/protein-icon.png";
-import carbsIcon from "../../assets/carbs-icon.png";
-import fatIcon from "../../assets/fat-icon.png";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import caloriesIcon from '../../assets/calories-icon.png';
+import proteinIcon from '../../assets/protein-icon.png';
+import carbsIcon from '../../assets/carbs-icon.png';
+import fatIcon from '../../assets/fat-icon.png';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 /**
  * Allows to show calories, protein, carbohydrate, lipid

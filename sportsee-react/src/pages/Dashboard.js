@@ -1,16 +1,16 @@
 import React from 'react';
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
-import Sessions from "../components/Sessions";
-import Error from "../components/Error";
-import Score from "../components/Score";
-import GeneralInformations from "../components/GeneralInformations";
-import Activity from "../components/Activity";
-import { getUserInfo } from "../services/Api";
-import styled from "styled-components";
-import Performance from "../components/Performance";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
+import Sessions from '../components/Sessions';
+import Error from '../components/Error';
+import Score from '../components/Score';
+import GeneralInformations from '../components/GeneralInformations';
+import Activity from '../components/Activity';
+import { getUserInfo } from '../services/Api';
+import styled from 'styled-components';
+import Performance from '../components/Performance';
 
 /**
  * Allows to show Dashboard page.
@@ -47,7 +47,7 @@ const Dashboard = () => {
   if (loading) return <Loader />;
 
   if (data.data !== undefined) {
-    console.log("data", data);
+    console.log('data', data);
     const name = data.data.userInfos.firstName;
     const calories = data.data.keyData.calorieCount;
     const proteins = data.data.keyData.proteinCount;

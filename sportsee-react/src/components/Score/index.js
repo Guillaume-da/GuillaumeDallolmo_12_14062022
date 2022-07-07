@@ -1,7 +1,7 @@
 import React from 'react';
-import { PieChart, Pie, ResponsiveContainer } from "recharts";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import { PieChart, Pie, ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 /**
  * Allows to show score of user
@@ -16,8 +16,8 @@ import styled from "styled-components";
 
 const Score = (scoreValue) => {
   const formatedData = [
-    { name: "score", value: scoreValue.scoreValue, stroke: "#FF0000" },
-    { name: "score", value: 1 - scoreValue.scoreValue, stroke: "transparent" },
+    { name: 'score', value: scoreValue.scoreValue, stroke: '#FF0000' },
+    { name: 'score', value: 1 - scoreValue.scoreValue, stroke: 'transparent' },
   ];
   const percentScore = scoreValue.scoreValue * 100;
 

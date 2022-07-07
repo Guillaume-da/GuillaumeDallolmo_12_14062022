@@ -1,5 +1,5 @@
 import React from 'react';
-import Loader from "../Loader";
+import Loader from '../Loader';
 import {
   BarChart,
   Bar,
@@ -8,11 +8,11 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
-import { getUserActivity } from "../../services/Api.js";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import useFetch from "../../hooks/useFetch";
+} from 'recharts';
+import { getUserActivity } from '../../services/Api.js';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import useFetch from '../../hooks/useFetch';
 
 /**
  * Allows to show activity sessions of the user (day, kilogram, calories)
@@ -42,7 +42,7 @@ const Activity = (userId) => {
   if (loading) return <Loader />;
 
   if (data) {
-    console.log("Activity", data);
+    console.log('Activity', data);
     return (
       <ContainerDivLabel>
         <HeaderDivLabel>
@@ -74,27 +74,27 @@ const Activity = (userId) => {
             <CartesianGrid
               vertical={false}
               strokeDasharray="1"
-              style={{ padding: "0", margin: "0" }}
+              style={{ padding: '0', margin: '0' }}
             />
             <XAxis
-              domain={["minData", "maxData"]}
+              domain={['minData', 'maxData']}
               tickMargin={15}
               tickLine={false}
               padding={{ left: 0, right: 0 }}
-              axisLine={{ stroke: "#DEDEDE" }}
-              tick={{ fill: "#9B9EAC", fontSize: "14px" }}
+              axisLine={{ stroke: '#DEDEDE' }}
+              tick={{ fill: '#9B9EAC', fontSize: '14px' }}
               tickFormatter={(number) => number + 1}
             />
             <YAxis
               yAxisId="kilogram"
               dataKey="kilogram"
               orientation="right"
-              domain={["dataMin-2", "dataMax+1"]}
+              domain={['dataMin-2', 'dataMax+1']}
               tickCount="3"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#9B9EAC", fontSize: "14px" }}
-              style={{ marginLeft: "20px" }}
+              tick={{ fill: '#9B9EAC', fontSize: '14px' }}
+              style={{ marginLeft: '20px' }}
               dx={45}
               scale="auto"
             />
@@ -102,7 +102,7 @@ const Activity = (userId) => {
             <Tooltip
               position={{ y: -25 }}
               content={<CustomTooltip />}
-              cursor={{ background: "#C4C4C4", opacity: 0.5 }}
+              cursor={{ background: '#C4C4C4', opacity: 0.5 }}
             />
             <Bar
               dataKey="kilogram"

@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 /**
  * Allows to show welcome message
@@ -15,7 +15,7 @@ import styled from "styled-components";
 const Message = (userName) => {
   return (
     <div>
-      <SpanLabel>Bonjour</SpanLabel>{" "}
+      <SpanLabel>Bonjour</SpanLabel>{' '}
       <RedSpanLabel>{userName.userName}</RedSpanLabel>
       <MessageLabel>
         Félicitation ! Vous avez explosé vos objectifs hier 👏

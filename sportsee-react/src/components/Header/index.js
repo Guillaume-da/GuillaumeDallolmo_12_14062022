@@ -1,8 +1,8 @@
 import React from 'react';
-import { useState } from "react";
-import logo from "../../assets/logo.png";
-import styled from "styled-components";
-import "../../styles/index.scss";
+import { useState } from 'react';
+import logo from '../../assets/logo.png';
+import styled from 'styled-components';
+import '../../styles/index.scss';
 
 /**
  * Allows to show Header
@@ -22,7 +22,7 @@ const Header = () => {
     <HeaderLabel>
       <ImgLabel src={logo} alt="logo" />
       <NavLabel>
-        <UlLabel className={` ${showLinks ? "show-nav" : "hide-nav"} `}>
+        <UlLabel className={` ${showLinks ? 'show-nav' : 'hide-nav'} `}>
           <LinkLabel>Accueil</LinkLabel>
           <LinkLabel>Profil</LinkLabel>
           <LinkLabel>Réglage</LinkLabel>

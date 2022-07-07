@@ -1,9 +1,9 @@
-import React from "react";
-import yogaIcon from "../../assets/yoga-icon.png";
-import swimmingIcon from "../../assets/swimming-icon.png";
-import bikeIcon from "../../assets/bike-icon.png";
-import weightIcon from "../../assets/weight-icon.png";
-import styled from "styled-components";
+import React from 'react';
+import yogaIcon from '../../assets/yoga-icon.png';
+import swimmingIcon from '../../assets/swimming-icon.png';
+import bikeIcon from '../../assets/bike-icon.png';
+import weightIcon from '../../assets/weight-icon.png';
+import styled from 'styled-components';
 
 /**
  * Allows to show Footer

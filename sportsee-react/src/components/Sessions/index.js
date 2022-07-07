@@ -7,12 +7,12 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
-import Loader from "../Loader";
-import { getUserAverageSessions } from "../../services/Api.js";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import useFetch from "../../hooks/useFetch";
+} from 'recharts';
+import Loader from '../Loader';
+import { getUserAverageSessions } from '../../services/Api.js';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import useFetch from '../../hooks/useFetch';
 
 /**
  * Allows to show sessions duration of the user
@@ -38,7 +38,7 @@ const Sessions = (userId) => {
   if (loading) return <Loader />;
 
   if (data) {
-    console.log("Sessions", data);
+    console.log('Sessions', data);
     return (
       <Container>
         <Title>Durée moyenne des sessions</Title>
@@ -59,18 +59,18 @@ const Sessions = (userId) => {
               tickLine={false}
               axisLine={false}
               interval={0}
-              tick={{ fontSize: "16px" }}
+              tick={{ fontSize: '16px' }}
               style={{
-                transform: "scale(0.85)",
-                transformOrigin: "134px 350px",
-                opacity: "0.5",
+                transform: 'scale(0.85)',
+                transformOrigin: '134px 350px',
+                opacity: '0.5',
               }}
               tickFormatter={(item) => {
-                const daysInLetters = ["L", "M", "M", "J", "V", "S", "D"];
+                const daysInLetters = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
                 return `${daysInLetters[item - 1]}`;
               }}
             />
-            <YAxis hide={true} domain={["dataMin-10", "dataMax+10"]} />
+            <YAxis hide={true} domain={['dataMin-10', 'dataMax+10']} />
             <Tooltip content={<CustomTooltip />} cursor={false} />
             <Line type="monotone" dataKey="sessionLength" />
             <Area
@@ -81,12 +81,12 @@ const Sessions = (userId) => {
               fill="#FF0D0D"
               activeDot={{
                 width: 8,
-                fill: "#FFFFFF",
-                stroke: "#FFFFFF",
+                fill: '#FFFFFF',
+                stroke: '#FFFFFF',
                 strokeWidth: 10,
                 r: 3,
                 strokeOpacity: 0.35,
-                border: "5px solid rgba(255, 255, 255, 0.198345)",
+                border: '5px solid rgba(255, 255, 255, 0.198345)',
               }}
             />
           </AreaChart>

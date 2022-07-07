@@ -6,12 +6,12 @@ import {
   PolarAngleAxis,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
-import Loader from "../Loader";
-import { getUserPerformance } from "../../services/Api.js";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import useFetch from "../../hooks/useFetch";
+} from 'recharts';
+import Loader from '../Loader';
+import { getUserPerformance } from '../../services/Api.js';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import useFetch from '../../hooks/useFetch';
 
 /**
  * Allows to show performance user
@@ -32,21 +32,21 @@ const Performance = (userId) => {
   const datas = [...data?.data.data].reverse();
   datas.map((item) => {
     if (item.kind === 1) {
-      item.kind = "Cardio";
+      item.kind = 'Cardio';
     } else if (item.kind === 2) {
-      item.kind = "Energie";
+      item.kind = 'Energie';
     } else if (item.kind === 3) {
-      item.kind = "Endurance";
+      item.kind = 'Endurance';
     } else if (item.kind === 4) {
-      item.kind = "Force";
+      item.kind = 'Force';
     } else if (item.kind === 5) {
-      item.kind = "Vitesse";
+      item.kind = 'Vitesse';
     } else if (item.kind === 6) {
-      item.kind = "Intensité";
+      item.kind = 'Intensité';
     }
     return datas;
   });
-  console.log("Performance", data);
+  console.log('Performance', data);
   return (
     <RadarDivLabel>
       <ResponsiveContainer width="100%" height="100%">
@@ -62,7 +62,7 @@ const Performance = (userId) => {
             dataKey="kind"
             stroke="#FFF"
             tickLine={false}
-            style={{ fontSize: "12px" }}
+            style={{ fontSize: '12px' }}
           />
           <Tooltip />
           <Radar
