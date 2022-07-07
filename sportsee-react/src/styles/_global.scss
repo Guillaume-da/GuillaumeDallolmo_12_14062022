@@ -19,6 +19,7 @@ body {
 }
 
 .hide-nav {
+    left: 100%;
     transform: translateX(-100%) !important;
     transition: all 0.8s ease-in-out;
 }
