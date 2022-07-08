@@ -29,6 +29,7 @@ Message.propTypes = {
 
 const SpanLabel = styled.span`
   font-size: 48px;
+  font-weight: 500;
   line-height: 24px;
   margin-left: 0;
   @media (max-width: 1380px) {
@@ -40,6 +41,7 @@ const SpanLabel = styled.span`
 `;
 const RedSpanLabel = styled.span`
   font-size: 48px;
+  font-weight: 500;
   color: #ff0101;
   line-height: 24px;
   margin-left: 10px;
@@ -50,6 +52,7 @@ const RedSpanLabel = styled.span`
 const MessageLabel = styled.p`
   margin-top: 48px;
   margin-left: 0;
+  font-weight: 400;
   @media (max-width: 1380px) {
     margin-left: 40px;
     margin-right: 40px;

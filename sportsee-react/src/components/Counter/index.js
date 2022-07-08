@@ -22,7 +22,7 @@ const Counter = (count) => {
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={caloriesIcon} alt="Calories" />
         <TextDivLabel>
-          <span>{count.count.toLocaleString('en-US')}kCal</span>
+          <CountSpanLabel>{count.count.toLocaleString('en-US')}kCal</CountSpanLabel>
           <SpanLabel>calories</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
@@ -32,7 +32,7 @@ const Counter = (count) => {
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={proteinIcon} alt="Calories" />
         <TextDivLabel>
-          <span>{count.count.toLocaleString('en-US')}g</span>
+          <CountSpanLabel>{count.count.toLocaleString('en-US')}g</CountSpanLabel>
           <SpanLabel>Proteines</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
@@ -42,7 +42,7 @@ const Counter = (count) => {
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={carbsIcon} alt="Calories" />
         <TextDivLabel>
-          <span>{count.count.toLocaleString('en-US')}g</span>
+          <CountSpanLabel>{count.count.toLocaleString('en-US')}g</CountSpanLabel>
           <SpanLabel>Glucides</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
@@ -52,7 +52,7 @@ const Counter = (count) => {
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={fatIcon} alt="Calories" />
         <TextDivLabel>
-          <span>{count.count.toLocaleString('en-US')}g</span>
+          <CountSpanLabel>{count.count.toLocaleString('en-US')}g</CountSpanLabel>
           <SpanLabel>Lipides</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
@@ -115,6 +115,10 @@ const TextDivLabel = styled.div`
 const SpanLabel = styled.span`
   color: #74798c;
   font-size: 14px;
+  font-weight: 500;
 `;
+const CountSpanLabel = styled.span`
+  font-weight: 700;
+`
 
 export default Counter
