@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import useFetch from '../../hooks/useFetch';
 
+
 /**
  * Allows to show activity sessions of the user (day, kilogram, calories)
  *
@@ -37,6 +38,12 @@ const Activity = (userId) => {
       );
     }
     return null;
+  }
+
+  function FormatDate(tickItem) { 
+    var options = {/* year: 'numeric',  */month: 'long', day: 'numeric' };
+    const formatedDate = new Date(tickItem)
+    return formatedDate.toLocaleDateString('fr-FR', options)
   }
 
   if (loading) return <Loader />;
@@ -83,7 +90,8 @@ const Activity = (userId) => {
               padding={{ left: 0, right: 0 }}
               axisLine={{ stroke: '#DEDEDE' }}
               tick={{ fill: '#9B9EAC', fontSize: '14px' }}
-              tickFormatter={(number) => number + 1}
+              dataKey="day"
+              tickFormatter={FormatDate}
             />
             <YAxis
               yAxisId="kilogram"
