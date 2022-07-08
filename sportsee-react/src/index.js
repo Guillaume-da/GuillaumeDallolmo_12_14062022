@@ -5,6 +5,7 @@ import { createGlobalStyle } from 'styled-components'
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+// Add some reset css rules
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;

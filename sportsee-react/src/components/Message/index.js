@@ -50,12 +50,13 @@ const RedSpanLabel = styled.span`
   }
 `;
 const MessageLabel = styled.p`
-  margin-top: 48px;
+  margin-top: 38px;
   margin-left: 0;
   font-weight: 400;
   @media (max-width: 1380px) {
     margin-left: 40px;
     margin-right: 40px;
+    margin-top: 48px;
   }
 `;
 

@@ -158,12 +158,15 @@ const ContainerDivLabel = styled.div`
     top: 0;
     margin-left: 20px;
     margin-right: 20px;
-    width: 65vw;
+    width: 78vw;
   }
   @media (min-width: 1380px) {
     margin-bottom: 28px;
     padding: 26px 26px 46px 32px;
-    width: 56vw;
+    width: 59vw;
+  }
+  @media (min-width: 1550px) {
+    width: 64vw;
   }
 
   @keyframes scale-anim {
@@ -186,6 +189,10 @@ const HeaderDivLabel = styled.div`
   font-size: 15px;
   justify-content: space-between;
   margin-bottom: 45px;
+  h2 {
+    font-size: 15px;
+    font-weight: 500;
+  }
 `;
 const LegendDivLabel = styled.div`
   color: #74798c;
