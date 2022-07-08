@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import logo from '../../assets/logo.png';
 import styled from 'styled-components';
-import '../../styles/index.scss';
+// import '../../styles/index.scss';
 
 /**
  * Allows to show Header Component
@@ -47,6 +47,18 @@ const HeaderLabel = styled.header`
   width: 100%;
   z-index: 10000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  .show-nav {
+    transform: translateX(0) !important;
+    transition: all 0.8s ease-in-out;
+    
+  }
+  .hide-nav {
+    transform: translateX(-100%) !important;
+    transition: all 0.8s ease-in-out;
+    @media (min-width: 1080px) {
+      left: 100%;
+    }
+  }
 `;
 const ImgLabel = styled.img`
   width: 178px;

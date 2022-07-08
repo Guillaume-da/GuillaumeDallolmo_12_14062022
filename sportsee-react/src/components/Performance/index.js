@@ -104,6 +104,9 @@ const RadarDivLabel = styled.div`
     width: 100%;
     height: 350px;
   }
+  .recharts-polar-angle-axis-tick tspan {
+     alignment-baseline: central;
+  }
 `;
 
 export default Performance;

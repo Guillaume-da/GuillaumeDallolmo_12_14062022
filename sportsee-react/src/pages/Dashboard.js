@@ -131,7 +131,7 @@ const FlexContainer = styled.div`
     flex-direction: row;
   }
   @media (min-width: 1380px) {
-    margin: 77px 0 0 0;
+    margin: 57px 0 0 0;
     flex-direction: row;
   }
 `;

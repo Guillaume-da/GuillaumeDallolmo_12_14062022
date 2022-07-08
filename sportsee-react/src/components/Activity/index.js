@@ -141,7 +141,7 @@ Activity.propTypes = {
 
 const ContainerDivLabel = styled.div`
   width: auto;
-  height: 260px;
+  height: 320px;
   background: #fbfbfb;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
   padding: 26px 26px 26px 32px;
@@ -162,6 +162,7 @@ const ContainerDivLabel = styled.div`
   }
   @media (min-width: 1380px) {
     margin-bottom: 28px;
+    padding: 26px 26px 46px 32px;
     width: 56vw;
   }
 
