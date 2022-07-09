@@ -46,7 +46,7 @@ const Dashboard = () => {
 
   if (loading) return <Loader />;
 
-  if (data.data !== undefined) {
+  if (data?.data) {
     console.log('data', data);
     const name = data.data.userInfos.firstName;
     const calories = data.data.keyData.calorieCount;

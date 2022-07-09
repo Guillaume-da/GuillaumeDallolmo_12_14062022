@@ -158,7 +158,7 @@ const ContainerDivLabel = styled.div`
     top: 0;
     margin-left: 20px;
     margin-right: 20px;
-    width: 78vw;
+    width: 72vw;
   }
   @media (min-width: 1380px) {
     margin-bottom: 28px;

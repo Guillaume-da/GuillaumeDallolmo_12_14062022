@@ -72,7 +72,7 @@ const ItemDivLabel = styled.div`
   column-gap: 24px;
   opacity: 0;
   padding: 32px 51px 32px 32px;
-  animation: scale-anim 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-anim 1.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   @keyframes scale-anim {
     0% {
       transform: scale(1.25);
@@ -83,12 +83,6 @@ const ItemDivLabel = styled.div`
       opacity: 1;
     }
   }
-  @for $i from 1 through 14 {
-    .main__flex-container-sidebar > .main__sidebar-item:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.15}s;
-    }
-  }
-
   @media (min-width: 1024px) {
     padding: 24px;
   }
