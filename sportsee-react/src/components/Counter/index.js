@@ -16,8 +16,7 @@ import styled from 'styled-components';
  * @version 1.0
  * 
  */
-const Counter = (value, idValue) => {
-  console.log(value.value)
+const Counter = (value) => {
   if (value.idValue === 'calories') {
     return (
       <ItemDivLabel className="main__sidebar-item">
