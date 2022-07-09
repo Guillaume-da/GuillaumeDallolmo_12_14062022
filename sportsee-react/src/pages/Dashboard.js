@@ -6,7 +6,7 @@ import Message from '../components/Message';
 import Sessions from '../components/Sessions';
 import Error from '../components/Error';
 import Score from '../components/Score';
-import GeneralInformations from '../components/GeneralInformations';
+import Counter from '../components/Counter';
 import Activity from '../components/Activity';
 import { getUserInfo } from '../services/Api';
 import styled from 'styled-components';
@@ -67,12 +67,12 @@ const Dashboard = () => {
               <Score scoreValue={score} className="anim-item" />
             </Container>
           </div>
-          <GeneralInformations
-            caloriesValue={calories}
-            proteinValue={proteins}
-            carbohydrateValue={carbohydrate}
-            lipidValue={lipid}
-          />
+          <ContainerDivLabel className="main__flex-container-sidebar">
+            <Counter value={calories} idValue="calories" />
+            <Counter value={proteins} idValue="proteines" />
+            <Counter value={carbohydrate} idValue="glucides" />
+            <Counter value={lipid} idValue="lipides" />
+          </ContainerDivLabel>
         </FlexContainer>
       </MainDivLabel>
     );
@@ -81,6 +81,23 @@ const Dashboard = () => {
   }
 };
 
+const ContainerDivLabel = styled.div`
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  @media (min-width: 1080px) {
+    flex-direction: column;
+  }
+  @media (max-width: 1380px) {
+    flex-wrap: wrap;
+    row-gap: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media (max-width: 885px) {
+    justify-content: space-around;
+  }
+`;
 const MainDivLabel = styled.div`
   padding: 145px 70px 72px 210px;
   height: 100%;

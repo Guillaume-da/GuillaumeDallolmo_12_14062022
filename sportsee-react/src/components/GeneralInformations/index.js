@@ -1,6 +1,6 @@
 import React from 'react';
 import Counter from '../Counter';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 /**
@@ -15,33 +15,37 @@ import styled from 'styled-components';
  * @author Guillaume
  * @version 1.0
  */
-const GeneralInformations = ({
-  caloriesValue,
-  proteinValue,
-  carbohydrateValue,
-  lipidValue,
-}) => {
-  const values = [caloriesValue, proteinValue, carbohydrateValue, lipidValue];
+const GeneralInformations = (
+  values
+) => {
   
+  // const values = [caloriesValue, proteinValue, carbohydrateValue, lipidValue];
+  console.log(values.values.calories)
+  // console.log('proteins',proteins)
   return (
     <ContainerDivLabel className="main__flex-container-sidebar">
-      {values?.map((value, index) => (
+      if(value.values.calories !== undefined){
+        <Counter
+          count={values.values.calories}
+        />
+      }
+      {/* {values?.map((value, index) => (
         <Counter
           count={value}
           index={index}
           key={`${value}-${index}`}
         />
-      ))}
+      ))} */}
     </ContainerDivLabel>
   );
 };
 
-GeneralInformations.propTypes = {
-  caloriesValue: PropTypes.number.isRequired,
-  proteinValue: PropTypes.number.isRequired,
-  carbohydrateValue: PropTypes.number.isRequired,
-  lipidValue: PropTypes.number.isRequired
-};
+// GeneralInformations.propTypes = {
+//   caloriesValue: PropTypes.number.isRequired,
+//   proteinValue: PropTypes.number.isRequired,
+//   carbohydrateValue: PropTypes.number.isRequired,
+//   lipidValue: PropTypes.number.isRequired
+// };
 
 const ContainerDivLabel = styled.div`
   flex-direction: row;

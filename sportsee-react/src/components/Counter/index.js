@@ -9,58 +9,60 @@ import styled from 'styled-components';
 /**
  * Allows to show calories, protein, carbohydrate, lipid
  *
- * @param {number} count - number of calories, proteins, carbohydrate and lipid
+ * @param {number} value - number of calories, proteins, carbohydrate or lipid
  *
  * @return jsx
  * @author Guillaume
  * @version 1.0
  * 
  */
-const Counter = (count) => {
-  if (count.index === 0) {
+const Counter = (value, idValue) => {
+  console.log(value.value)
+  if (value.idValue === 'calories') {
     return (
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={caloriesIcon} alt="Calories" />
         <TextDivLabel>
-          <CountSpanLabel>{count.count.toLocaleString('en-US')}kCal</CountSpanLabel>
+          <CountSpanLabel>{value.value.toLocaleString('en-US')}kCal</CountSpanLabel>
           <SpanLabel>calories</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
     );
-  } else if (count.index === 1) {
+  } else if (value.idValue === 'proteines') {
     return (
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={proteinIcon} alt="Calories" />
         <TextDivLabel>
-          <CountSpanLabel>{count.count.toLocaleString('en-US')}g</CountSpanLabel>
+          <CountSpanLabel>{value.value.toLocaleString('en-US')}g</CountSpanLabel>
           <SpanLabel>Proteines</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
     );
-  } else if (count.index === 2) {
+  } else if (value.idValue === 'glucides') {
     return (
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={carbsIcon} alt="Calories" />
         <TextDivLabel>
-          <CountSpanLabel>{count.count.toLocaleString('en-US')}g</CountSpanLabel>
+          <CountSpanLabel>{value.value.toLocaleString('en-US')}g</CountSpanLabel>
           <SpanLabel>Glucides</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
     );
-  } else if (count.index === 3) {
+  } else if (value.idValue === 'lipides') {
     return (
       <ItemDivLabel className="main__sidebar-item">
         <ImgLabel src={fatIcon} alt="Calories" />
         <TextDivLabel>
-          <CountSpanLabel>{count.count.toLocaleString('en-US')}g</CountSpanLabel>
+          <CountSpanLabel>{value.value.toLocaleString('en-US')}g</CountSpanLabel>
           <SpanLabel>Lipides</SpanLabel>
         </TextDivLabel>
       </ItemDivLabel>
     );
   }
 };
+
 Counter.propTypes = {
-  count: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 const ItemDivLabel = styled.div`
