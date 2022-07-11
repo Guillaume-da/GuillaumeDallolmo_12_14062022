@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Dashboard = () => {
+/**
+ * Allows to show Home page.
+ *
+ * @return Home page
+ * @author Guillaume
+ * @version 1.0
+ * 
+ */
+const Homepage = () => {
   return (
     <MainDivLabel>
       <p>Homepage</p>
@@ -21,4 +29,4 @@ const MainDivLabel = styled.div`
   }
 `;
 
-export default Dashboard;
+export default Homepage;

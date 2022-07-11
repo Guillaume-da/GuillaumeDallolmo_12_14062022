@@ -4,7 +4,7 @@ import styled from 'styled-components';
 /**
  * Allows to show Loader component
  *
- * @return jsx
+ * @return Spinning loader
  * @author Guillaume
  * @version 1.0
  */

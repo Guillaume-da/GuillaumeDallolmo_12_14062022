@@ -2,12 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import logo from '../../assets/logo.png';
 import styled from 'styled-components';
-// import '../../styles/index.scss';
 
 /**
  * Allows to show Header Component
  *
- * @return jsx
+ * @return Header containing the logo, a Nav, and a button showing the menu on mobile version.
  * @author Guillaume
  * @version 1.0
  */

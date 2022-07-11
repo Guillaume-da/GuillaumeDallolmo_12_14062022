@@ -11,7 +11,7 @@ import styled from 'styled-components';
  *
  * @param {number} value - number of calories, proteins, carbohydrate or lipid
  *
- * @return jsx
+ * @return Div containing an icon  and a value. Used for show calories, proteins, carbohydrate or lipid
  * @author Guillaume
  * @version 1.0
  * 

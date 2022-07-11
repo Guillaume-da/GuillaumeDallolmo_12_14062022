@@ -15,7 +15,7 @@ import Performance from '../components/Performance';
 /**
  * Allows to show Dashboard page.
  *
- * @return jsx
+ * @return Dashboard page
  * @author Guillaume
  * @version 1.0
  * 

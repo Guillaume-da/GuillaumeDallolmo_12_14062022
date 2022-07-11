@@ -8,7 +8,7 @@ import styled from 'styled-components';
 /**
  * Allows to show Footer
  *
- * @return jsx
+ * @return Footer containg icons and a copyright message
  * @author Guillaume
  * @version 1.0
  * 

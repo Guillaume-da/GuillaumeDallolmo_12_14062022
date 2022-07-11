@@ -26,145 +26,163 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react'
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Loader from '../components/Loader'
-import Message from '../components/Message'
-import Sessions from '../components/Sessions'
-import Error from '../components/Error'
-import Score from '../components/Score'
-import GeneralInformations from '../components/GeneralInformations'
-import Activity from '../components/Activity'
+import Loader from '../components/Loader';
+import Message from '../components/Message';
+import Sessions from '../components/Sessions';
+import Error from '../components/Error';
+import Score from '../components/Score';
+import Counter from '../components/Counter';
+import Activity from '../components/Activity';
 import { getUserInfo } from '../services/Api';
-import styled from 'styled-components'
-import Performance from '../components/Performance'
+import styled from 'styled-components';
+import Performance from '../components/Performance';
 
 /**
-* Allows to show Dashboard page.
-*
-* @return jsx
-* @author Guillaume
-* @version 1.0
-*/
-
+ * Allows to show Dashboard page.
+ *
+ * @return Dashboard page
+ * @author Guillaume
+ * @version 1.0
+ * 
+ */
 const Dashboard = () => {
-    const slug = useParams();
-    const id = slug.id
-    
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const slug = useParams();
+  const id = slug.id;
 
-    // Allows to get user datas on loading page
-    useEffect(() => {
-        const getUserData = async () => {
-            try {
-              const userData = await getUserInfo(id)
-              setData(userData)
-            } catch (err) {
-              setError(true)
-              console.log(error)
-            } finally {
-              setLoading(false)
-            }
-          }
-        getUserData()
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const userData = await getUserInfo(id);
+        setData(userData);
+      } catch (err) {
+        setError(true);
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    
-    if(loading) return &lt;Loader />
-       
-    if(data.data !== undefined) {
-      console.log('data',data)
-        const name = data.data.userInfos.firstName
-        const calories = data.data.keyData.calorieCount
-        const proteins = data.data.keyData.proteinCount
-        const carbohydrate = data.data.keyData.carbohydrateCount
-        const lipid = data.data.keyData.lipidCount
-        const score = data.data.todayScore || data.data.score
-        
-        return (
-            &lt;MainDivLabel>
-                &lt;Message userName={name}/>
-                &lt;FlexContainer>
-                  &lt;div>
-                    &lt;Activity userId={Number(id)} />
-                    &lt;Container className="anim-container">
-                      &lt;Sessions userId={Number(id)} className="anim-item"/>
-                      &lt;Performance userId={Number(id)} className="anim-item"/>
-                      &lt;Score scoreValue={score} className="anim-item"/>
-                    &lt;/Container>
-                  &lt;/div>
-                  &lt;GeneralInformations
-                  caloriesValue={calories} 
-                  proteinValue={proteins} 
-                  carbohydrateValue={carbohydrate} 
-                  lipidValue={lipid} 
-                  />
-                &lt;/FlexContainer>
-            &lt;/MainDivLabel>
-        );
-    } else  {
-      return &lt;Error /> 
-    }  
-}
+  }, []);
 
+  if (loading) return &lt;Loader />;
+
+  if (data?.data) {
+    console.log('data', data);
+    const name = data.data.userInfos.firstName;
+    const calories = data.data.keyData.calorieCount;
+    const proteins = data.data.keyData.proteinCount;
+    const carbohydrate = data.data.keyData.carbohydrateCount;
+    const lipid = data.data.keyData.lipidCount;
+    const score = data.data.todayScore || data.data.score;
+
+    return (
+      &lt;MainDivLabel>
+        &lt;Message userName={name} />
+        &lt;FlexContainer>
+          &lt;div>
+            &lt;Activity userId={Number(id)} />
+            &lt;Container className="anim-container">
+              &lt;Sessions userId={Number(id)} className="anim-item" />
+              &lt;Performance userId={Number(id)} className="anim-item" />
+              &lt;Score scoreValue={score} className="anim-item" />
+            &lt;/Container>
+          &lt;/div>
+          &lt;ContainerDivLabel className="main__flex-container-sidebar">
+            &lt;Counter value={calories} idValue="calories" />
+            &lt;Counter value={proteins} idValue="proteines" />
+            &lt;Counter value={carbohydrate} idValue="glucides" />
+            &lt;Counter value={lipid} idValue="lipides" />
+          &lt;/ContainerDivLabel>
+        &lt;/FlexContainer>
+      &lt;/MainDivLabel>
+    );
+  } else {
+    return &lt;Error />;
+  }
+};
+
+const ContainerDivLabel = styled.div`
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  @media (min-width: 1080px) {
+    flex-direction: column;
+  }
+  @media (max-width: 1380px) {
+    flex-wrap: wrap;
+    row-gap: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media (max-width: 885px) {
+    justify-content: space-around;
+  }
+`;
 const MainDivLabel = styled.div`
-    padding: 145px 70px 72px 210px;
-    height: 100%;
-    width: auto;
-    @media (max-width: 1024px) {
-      padding: 159px 34px 88px 160px;
-      width: 100%;
-    }
-    @media (min-width: 1024px) {
-      padding: 159px 34px 88px 160px;
-    }
-    @media (min-width: 1380px) {
-      padding: 159px 90px 0 224px;
-    }
-    @media (max-width: 1380px) {
-      padding: 150px 0px 60px 0px;
-    }
-`
+  padding: 145px 70px 72px 210px;
+  height: 100%;
+  width: auto;
+  @media (max-width: 1024px) {
+    padding: 159px 34px 88px 160px;
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    padding: 159px 34px 88px 160px;
+  }
+  @media (min-width: 1380px) {
+    padding: 159px 90px 0 224px;
+  }
+  @media (max-width: 1380px) {
+    padding: 150px 0px 60px 0px;
+  }
+`;
 const Container = styled.div`
-    display: flex;
-    justify-content: space-between;
-    @media (max-width: 1380px) {
-      margin-top: 100px;
-    }
-    @media (max-width: 1380px) {
-      flex-wrap: wrap;
-      row-gap: 50px;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-    @media (max-width: 1080px) {
-      justify-content: space-evenly;
-    }
-    @media (max-width: 680px) {
-      padding: 0;
-    }
-`
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1380px) {
+    margin-top: 100px;
+  }
+  @media (max-width: 1380px) {
+    flex-wrap: wrap;
+    row-gap: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @media (max-width: 1080px) {
+    justify-content: space-evenly;
+  }
+  @media (max-width: 680px) {
+    padding: 0;
+  }
+`;
 const FlexContainer = styled.div`
-    display: flex;
-    margin: 77px 0 30px 0;
-    justify-content: space-between;
-    padding-bottom: 90px;
+  display: flex;
+  margin: 77px 0 30px 0;
+  justify-content: space-between;
+  padding-bottom: 90px;
+  flex-direction: column-reverse;
+  @media (min-width: 1080px) {
     flex-direction: column-reverse;
-    @media (min-width: 1080px) {
-      flex-direction: column-reverse;
-      row-gap: 45px;
-      margin: 77px 0 0 0;
-      flex-direction: row;
-    }
-    @media (min-width: 1380px) {
-      margin: 77px 0 0 0;
-      flex-direction: row;
-    }
-`
+    row-gap: 45px;
+    margin: 77px 0 0 0;
+    flex-direction: row;
+  }
+  @media (min-width: 1380px) {
+    margin: 57px 0 0 0;
+    flex-direction: row;
+  }
+`;
 
-export default Dashboard;</code></pre>
+export default Dashboard;
+</code></pre>
         </article>
     </section>
 
@@ -174,13 +192,13 @@ export default Dashboard;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Sportsee documentation</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GeneralInformations">GeneralInformations</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li></ul>
+    <h2><a href="index.html">Sportsee documentation</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#Counter">Counter</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue Jul 05 2022 11:08:46 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Jul 11 2022 17:06:33 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

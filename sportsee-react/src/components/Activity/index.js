@@ -84,7 +84,7 @@ const Activity = (userId) => {
               style={{ padding: '0', margin: '0' }}
             />
             <XAxis
-              domain={['minData', 'maxData']}
+              // domain={['minData', 'maxData']}
               tickMargin={15}
               tickLine={false}
               padding={{ left: 0, right: 0 }}

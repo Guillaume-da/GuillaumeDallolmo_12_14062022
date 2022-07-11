@@ -18,7 +18,7 @@ import useFetch from '../../hooks/useFetch';
  *
  * @param {number} userId - number ID of the user
  *
- * @return jsx
+ * @return RadarChart made with Recharts showing cardio, energy, endurance, strength, speed, intensity values
  * @author Guillaume
  * @version 1.0
  */

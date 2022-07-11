@@ -26,217 +26,240 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import Loader from '../Loader'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import Loader from '../Loader';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
 import { getUserActivity } from '../../services/Api.js';
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import useFetch from '../../hooks/useFetch'
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import useFetch from '../../hooks/useFetch';
+
 
 /**
-* Allows to show activity sessions of the user (day, kilogram, calories)
-*
-* @param {userId} number - user ID of the user
-*
-* @return jsx
-* @author Guillaume
-* @version 1.0
-*/
-
+ * Allows to show activity sessions of the user (day, kilogram, calories)
+ *
+ * @param {number} userId - user ID of the user
+ *
+ * @return jsx
+ * @author Guillaume
+ * @version 1.0
+ * 
+ */
 const Activity = (userId) => {
+  const { loading, data } = useFetch(getUserActivity(userId.userId));
 
-    const { loading, data } = useFetch(getUserActivity(userId.userId))
+  function CustomTooltip({ payload, active }) {
+    if (active) {
+      return (
+        &lt;TooltipContainer>
+          &lt;p>{`${payload[0].value}`}kg&lt;/p>
+          &lt;p>{`${payload[1].value}`}KCal&lt;/p>
+        &lt;/TooltipContainer>
+      );
+    }
+    return null;
+  }
 
-    function CustomTooltip({ payload, active }) {
-        if (active) {
-          return (
-            &lt;TooltipContainer>
-              &lt;p>{`${payload[0].value}`}kg&lt;/p>
-              &lt;p>{`${payload[1].value}`}KCal&lt;/p>
-            &lt;/TooltipContainer>
-          );
-        }
-        return null;
-      }
+  function FormatDate(tickItem) { 
+    var options = {/* year: 'numeric',  */month: 'long', day: 'numeric' };
+    const formatedDate = new Date(tickItem)
+    return formatedDate.toLocaleDateString('fr-FR', options)
+  }
 
-    if(loading) return &lt;Loader />
-    
-    if(data) {
-        console.log('Activity',data)
-        return (
-            &lt;ContainerDivLabel>
-                &lt;HeaderDivLabel>
-                    &lt;h2>Activité quotidienne&lt;/h2>
-                    &lt;LegendDivLabel>
-                        &lt;HeaderContainerDivLabel>
-                            &lt;GreyCircle>&lt;/GreyCircle>
-                            &lt;span>Poids (kg)&lt;/span>
-                        &lt;/HeaderContainerDivLabel>
-                        &lt;HeaderContainerDivLabel>
-                            &lt;RedCircle>&lt;/RedCircle>
-                            &lt;span>Calories brûlées (kCal)&lt;/span>
-                        &lt;/HeaderContainerDivLabel>
-                    &lt;/LegendDivLabel>         
-                &lt;/HeaderDivLabel>
-                &lt;ResponsiveContainer width="100%" height="80%" >
-                    &lt;BarChart
-                    width="100%"
-                    barGap={8}
-                    height="75%"
-                    data={data.data.sessions}
-                    margin={{
-                        top: 5,
-                        right: 20,
-                        left: 0,
-                        bottom: 5,
-                    }}
-                    >
-                    &lt;CartesianGrid
-                    vertical={false}
-                    strokeDasharray="1"
-                    style={{ padding: '0', margin: '0' }}
-                    />
-                    &lt;XAxis 
-                    domain={['minData', 'maxData']} 
-                    tickMargin={15}
-                    tickLine={false}
-                    padding={{ left: 0, right: 0 }}
-                    axisLine={{ stroke: '#DEDEDE' }}
-                    tick={{ fill: '#9B9EAC', fontSize: '14px' }}
-                    tickFormatter={(number) => number + 1}
-                    />
-                    &lt;YAxis 
-                    yAxisId="kilogram"
-                    dataKey="kilogram"
-                    orientation="right" 
-                    domain={["dataMin-2", "dataMax+1"]}
-                    tickCount="3" 
-                    axisLine={false}
-                    tickLine={false}
-                    tick={{ fill: '#9B9EAC', fontSize: '14px' }}
-                    style={{ marginLeft: '20px' }}
-                    dx={45}
-                    scale="auto"
-                    />
-                    &lt;YAxis
-                    yAxisId="calories"
-                    dataKey="calories"
-                    hide={true}
-                    />
-                    &lt;Tooltip 
-                    position={{ y: -25}} 
-                    content={&lt;CustomTooltip />} 
-                    cursor={{background: '#C4C4C4', opacity: 0.5 }} 
-                    />
-                    &lt;Bar 
-                    dataKey="kilogram" 
-                    yAxisId="kilogram"
-                    fill="#282D30" 
-                    barSize={7.5} 
-                    radius={[50, 50, 0, 0]}
-                    />
-                    &lt;Bar 
-                    dataKey="calories" 
-                    yAxisId="calories"
-                    fill="#E60000" 
-                    barSize={7.5} 
-                    radius={[50, 50, 0, 0]}
-                    />
-                    &lt;/BarChart>
-                &lt;/ResponsiveContainer>
-            &lt;/ContainerDivLabel>
-        )
-    }  
-}
+  if (loading) return &lt;Loader />;
+
+  if (data) {
+    console.log('Activity', data);
+    return (
+      &lt;ContainerDivLabel>
+        &lt;HeaderDivLabel>
+          &lt;h2>Activité quotidienne&lt;/h2>
+          &lt;LegendDivLabel>
+            &lt;HeaderContainerDivLabel>
+              &lt;GreyCircle>&lt;/GreyCircle>
+              &lt;span>Poids (kg)&lt;/span>
+            &lt;/HeaderContainerDivLabel>
+            &lt;HeaderContainerDivLabel>
+              &lt;RedCircle>&lt;/RedCircle>
+              &lt;span>Calories brûlées (kCal)&lt;/span>
+            &lt;/HeaderContainerDivLabel>
+          &lt;/LegendDivLabel>
+        &lt;/HeaderDivLabel>
+        &lt;ResponsiveContainer width="100%" height="80%">
+          &lt;BarChart
+            width="100%"
+            barGap={8}
+            height="75%"
+            data={data.data.sessions}
+            margin={{
+              top: 5,
+              right: 20,
+              left: 0,
+              bottom: 5,
+            }}
+          >
+            &lt;CartesianGrid
+              vertical={false}
+              strokeDasharray="1"
+              style={{ padding: '0', margin: '0' }}
+            />
+            &lt;XAxis
+              // domain={['minData', 'maxData']}
+              tickMargin={15}
+              tickLine={false}
+              padding={{ left: 0, right: 0 }}
+              axisLine={{ stroke: '#DEDEDE' }}
+              tick={{ fill: '#9B9EAC', fontSize: '14px' }}
+              dataKey="day"
+              tickFormatter={FormatDate}
+            />
+            &lt;YAxis
+              yAxisId="kilogram"
+              dataKey="kilogram"
+              orientation="right"
+              domain={['dataMin-2', 'dataMax+1']}
+              tickCount="3"
+              axisLine={false}
+              tickLine={false}
+              tick={{ fill: '#9B9EAC', fontSize: '14px' }}
+              style={{ marginLeft: '20px' }}
+              dx={45}
+              scale="auto"
+            />
+            &lt;YAxis yAxisId="calories" dataKey="calories" hide={true} />
+            &lt;Tooltip
+              position={{ y: -25 }}
+              content={&lt;CustomTooltip />}
+              cursor={{ background: '#C4C4C4', opacity: 0.5 }}
+            />
+            &lt;Bar
+              dataKey="kilogram"
+              yAxisId="kilogram"
+              fill="#282D30"
+              barSize={7.5}
+              radius={[50, 50, 0, 0]}
+            />
+            &lt;Bar
+              dataKey="calories"
+              yAxisId="calories"
+              fill="#E60000"
+              barSize={7.5}
+              radius={[50, 50, 0, 0]}
+            />
+          &lt;/BarChart>
+        &lt;/ResponsiveContainer>
+      &lt;/ContainerDivLabel>
+    );
+  }
+};
 
 Activity.propTypes = {
-  userId: PropTypes.number.isRequired
-}
+  userId: PropTypes.number.isRequired,
+  payload: PropTypes.object,
+  active: PropTypes.bool
+};
 
 const ContainerDivLabel = styled.div`
-    width: auto;
-    height: 260px;
-    background: #FBFBFB;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-    padding: 26px 26px 26px 32px;
-    margin-bottom: 28px;
-    animation: scale-anim 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    position: relative;
+  width: auto;
+  height: 320px;
+  background: #fbfbfb;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  padding: 26px 26px 26px 32px;
+  margin-bottom: 28px;
+  animation: scale-anim 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  position: relative;
+  top: 0;
+  @media (max-width: 1080px) {
+    top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @media (min-width: 1081px) and (max-width: 1380px) {
     top: 0;
-    @media (max-width: 1080px) {
-        top: 50px;
-        margin-left: 20px;
-        margin-right: 20px;
-      }
-    @media (min-width: 1081px) and (max-width: 1380px) {
-        top: 0;
-        margin-left: 20px;
-        margin-right: 20px;
-        width: 65vw;
-      }
-    @media (min-width: 1380px) {
-      margin-bottom: 28px;
-      width: 56vw;
-    }
-    
-    @keyframes scale-anim {
-      0% {
-          transform: scale(1);
-          opacity: 0.25;
-      }
-      50% {
-          transform: scale(1.1);
-          opacity: 0.75;
-      }
-      100% {
-          transform: scale(1);
-          opacity: 1;
-      }
-    }
-`
-const HeaderDivLabel = styled.div`
-    display: flex;
-    font-size: 15px;
-    justify-content: space-between;
-    margin-bottom: 45px;
-`
-const LegendDivLabel = styled.div`
-    color: #74798C;
-    column-gap: 32px;
-    display: flex;
-`
-const HeaderContainerDivLabel = styled.div`
-    display: flex;
-    column-gap: 12px;
-    align-items: center;
-`
-const GreyCircle = styled.div`
-    background: #282D30;
-    border-radius: 50%;
-    width: 8px;
-    height: 8px;
-`
-const RedCircle = styled.div`
-    background: #E60000;
-    border-radius: 50%;
-    width: 8px;
-    height: 8px;
-`
-const TooltipContainer = styled.div`
-    background: #E60000;
-    color: white;
-    font-size: 7px;
-    height: 65px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    padding: 0 10px;
-    margin-left: 4vw;
-    margin-right: 4vw;
-`
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 72vw;
+  }
+  @media (min-width: 1380px) {
+    margin-bottom: 28px;
+    padding: 26px 26px 46px 32px;
+    width: 59vw;
+  }
+  @media (min-width: 1550px) {
+    width: 64vw;
+  }
 
-export default Activity</code></pre>
+  @keyframes scale-anim {
+    0% {
+      transform: scale(1);
+      opacity: 0.25;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.75;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+`;
+const HeaderDivLabel = styled.div`
+  display: flex;
+  font-size: 15px;
+  justify-content: space-between;
+  margin-bottom: 45px;
+  h2 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+`;
+const LegendDivLabel = styled.div`
+  color: #74798c;
+  column-gap: 32px;
+  display: flex;
+`;
+const HeaderContainerDivLabel = styled.div`
+  display: flex;
+  column-gap: 12px;
+  align-items: center;
+`;
+const GreyCircle = styled.div`
+  background: #282d30;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+`;
+const RedCircle = styled.div`
+  background: #e60000;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+`;
+const TooltipContainer = styled.div`
+  background: #e60000;
+  color: white;
+  font-size: 7px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 0 10px;
+  margin-left: 4vw;
+  margin-right: 4vw;
+`;
+
+export default Activity;
+</code></pre>
         </article>
     </section>
 
@@ -246,13 +269,13 @@ export default Activity</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Sportsee documentation</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GeneralInformations">GeneralInformations</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li></ul>
+    <h2><a href="index.html">Sportsee documentation</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#Counter">Counter</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue Jul 05 2022 11:08:46 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Jul 11 2022 17:06:33 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

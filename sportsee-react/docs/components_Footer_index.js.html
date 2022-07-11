@@ -26,76 +26,104 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react'
-import yogaIcon from '../../assets/yoga-icon.png'
-import swimmingIcon from '../../assets/swimming-icon.png'
-import bikeIcon from '../../assets/bike-icon.png'
-import weightIcon from '../../assets/weight-icon.png'
-import styled from 'styled-components'
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import yogaIcon from '../../assets/yoga-icon.png';
+import swimmingIcon from '../../assets/swimming-icon.png';
+import bikeIcon from '../../assets/bike-icon.png';
+import weightIcon from '../../assets/weight-icon.png';
+import styled from 'styled-components';
 
 /**
-* Allows to show Footer
-*
-*
-* @return jsx
-* @author Guillaume
-* @version 1.0
-*/
-
+ * Allows to show Footer
+ *
+ * @return Footer containg icons and a copyright message
+ * @author Guillaume
+ * @version 1.0
+ * 
+ */
 const Footer = () => {
-    return (
-        &lt;div>
-            &lt;AsideLabel>
-                &lt;DivLabel>
-                    &lt;ImgLabel src={yogaIcon} alt="" />
-                    &lt;ImgLabel src={swimmingIcon} alt="" />
-                    &lt;ImgLabel src={bikeIcon} alt="" />
-                    &lt;ImgLabel src={weightIcon} alt="" />
-                &lt;/DivLabel>
-            &lt;/AsideLabel>
-        &lt;/div> 
-    );
+  return (
+    &lt;div>
+      &lt;AsideLabel>
+        &lt;DivLabel>
+          &lt;ImgLabel src={yogaIcon} alt="" />
+          &lt;ImgLabel src={swimmingIcon} alt="" />
+          &lt;ImgLabel src={bikeIcon} alt="" />
+          &lt;ImgLabel src={weightIcon} alt="" />
+        &lt;/DivLabel>
+      &lt;/AsideLabel>
+      &lt;SpanLabel>Copyright, SportSee 2020&lt;/SpanLabel>
+    &lt;/div>
+  );
 };
 
 const AsideLabel = styled.aside`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #020203;
-    width: 117px;
-    position: fixed;
-    z-index: 500;
-    height: 100%;
-    top: 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-    @media (max-width: 1380px) {
-        height: 100px;
-        width: 100%;
-        top: unset;
-        bottom: 0;
-      }
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #020203;
+  width: 117px;
+  position: fixed;
+  z-index: 500;
+  height: 100%;
+  top: 0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  @media (max-width: 1380px) {
+    height: 100px;
+    width: 100%;
+    top: unset;
+    bottom: 0;
+  }
+  @media (max-width: 880px) {
+    height: 115px;
+  }
+`;
 const DivLabel = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
-    @media (max-width: 1380px) {
-        flex-direction: row;
-        column-gap: 20px;
-      }
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  @media (max-width: 1380px) {
+    flex-direction: row;
+    column-gap: 20px;
+  }
+`;
 const ImgLabel = styled.img`
-    width: 64px;
-    height: 64px;
-    @media (max-width: 1380px) {
-        width: 50px;
-        height: 50px;
-      }
+  width: 64px;
+  height: 64px;
+  @media (max-width: 1380px) {
+    width: 50px;
+    height: 50px;
+  }
+`;
+const SpanLabel = styled.span`
+  color: white;
+  font-size: 12px;
+  font-weight: 300;
+  transform: rotate(-90deg);
+  z-index: 700;
+  position: fixed;
+  left: -15px;
+  bottom: 120px;
+  @media (max-width: 1380px) {
+    transform: rotate(0);
+    color: white;
+    bottom: 40px;
+    right: 80px;
+    left: unset;
+    z-index: 700;
+  }
+  @media (max-width: 880px) {
+    left: 50%;
+    transform: translateX(-50%);
+    right: unset;
+    bottom: 10px;
+  }
 `
 
-export default Footer;</code></pre>
+export default Footer;
+</code></pre>
         </article>
     </section>
 
@@ -105,13 +133,13 @@ export default Footer;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Sportsee documentation</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#GeneralInformations">GeneralInformations</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li></ul>
+    <h2><a href="index.html">Sportsee documentation</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#Counter">Counter</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfo">getUserInfo</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#Sessions">Sessions</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue Jul 05 2022 11:08:46 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Jul 11 2022 17:06:33 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

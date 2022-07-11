@@ -7,7 +7,7 @@ import styled from 'styled-components';
  *
  * @param {string} userName - name of user
  *
- * @return jsx
+ * @return Div containing a Welcome message with the name of the user
  * @author Guillaume
  * @version 1.0
  */

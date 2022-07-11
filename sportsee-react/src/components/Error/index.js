@@ -4,7 +4,7 @@ import styled from 'styled-components';
 /**
  * Allows to show 404 error
  *
- * @return jsx
+ * @return 404 page
  * @author Guillaume
  * @version 1.0
  * 

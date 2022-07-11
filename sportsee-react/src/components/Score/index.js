@@ -7,7 +7,7 @@ import styled from 'styled-components';
  * Allows to show Score component
  * @param {number} scoreValue - number of the score of user
  *
- * @return jsx
+ * @return Div container containing a title and the user score value in percent, and a piechart for score visualization.
  * @author Guillaume
  * @version 1.0
  */
