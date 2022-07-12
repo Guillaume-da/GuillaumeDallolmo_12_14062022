@@ -1,12 +1,15 @@
-# Sportsee - React application
 
-## General information
+<img src="https://sportsee-react.netlify.app/static/media/logo.231a6da56bd8a5133afa.png" alt="Logo" title="Sportsee" width="178" margin-left="250" /> 
 
+# General information
 Sportsee allows to access to a sports analytics dashboard made with React and recharts.
+Open [http://localhost:3000/dashboard/12](http://localhost:3000/dashboard/12)  or [http://localhost:3000/dashboard/18](http://localhost:3000/dashboard/18) to view it in your browser.
 
 This project is made for working with an API. You can find it here: [Backend](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)
 
-## Documentation
+You can also see the online version here: [https://sportsee-react.netlify.app/dashboard/12](https://sportsee-react.netlify.app/dashboard/12) and here [https://sportsee-react.netlify.app/dashboard/18](https://sportsee-react.netlify.app/dashboard/18)
+
+# Documentation
 You can find the documentation here: [doc](http://127.0.0.1:5500/sportsee-react/docs/index.html) (please launch it with live server)
 
 # Getting Started with Create React App

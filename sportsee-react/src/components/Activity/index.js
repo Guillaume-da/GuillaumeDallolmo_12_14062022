@@ -41,7 +41,7 @@ const Activity = (userId) => {
   }
 
   function FormatDate(tickItem) { 
-    var options = {/* year: 'numeric',  */month: 'long', day: 'numeric' };
+    var options = {/* year: 'numeric',  *//* month: 'long',  */day: 'numeric' };
     const formatedDate = new Date(tickItem)
     return formatedDate.toLocaleDateString('fr-FR', options)
   }
