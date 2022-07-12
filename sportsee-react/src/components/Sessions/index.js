@@ -17,9 +17,9 @@ import useFetch from '../../hooks/useFetch';
 /**
  * Allows to show Sessions component
  *
- * @param {number} userId
+ * @param {number} userId - user ID of the user, coming from getUserInfo() which is called on dashboard page loading
  *
- * @return jsx
+ * @return TyniLineChart component made with Recharts showing sessions durations during 7 days. The XAxis represents the days of the week, and the line shows durations of each session.
  * @author Guillaume
  * @version 1.0
  */
@@ -37,7 +37,6 @@ const Sessions = (userId) => {
   if (loading) return <Loader />;
 
   if (data) {
-    console.log('Sessions', data);
     return (
       <Container>
         <Title>Durée moyenne des sessions</Title>

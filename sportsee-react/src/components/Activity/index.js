@@ -18,9 +18,9 @@ import useFetch from '../../hooks/useFetch';
 /**
  * Allows to show activity sessions of the user (day, kilogram, calories)
  *
- * @param {number} userId - user ID of the user
+ * @param {number} userId - user ID of the user, coming from getUserInfo() which is called on dashboard page loading
  *
- * @return jsx
+ * @return BarChart Component made with Recharts showing user activity. Datas are coming from getUserActivity(), the XAxis represents month days and the YAxis represents the user weight.
  * @author Guillaume
  * @version 1.0
  * 
@@ -49,7 +49,6 @@ const Activity = (userId) => {
   if (loading) return <Loader />;
 
   if (data) {
-    console.log('Activity', data);
     return (
       <ContainerDivLabel>
         <HeaderDivLabel>

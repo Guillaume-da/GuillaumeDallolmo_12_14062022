@@ -16,9 +16,9 @@ import useFetch from '../../hooks/useFetch';
 /**
  * Allows to show Performance component
  *
- * @param {number} userId - number ID of the user
+ * @param {number} userId - number ID of the user, coming from getUserInfo() which is called on dashboard page loading
  *
- * @return RadarChart made with Recharts showing cardio, energy, endurance, strength, speed, intensity values
+ * @return RadarChart made with Recharts showing cardio, energy, endurance, strength, speed, intensity values. Tha datas are coming from getUserPerformance()
  * @author Guillaume
  * @version 1.0
  */
@@ -45,7 +45,7 @@ const Performance = (userId) => {
     }
     return datas;
   });
-  console.log('Performance', data);
+  
   return (
     <RadarDivLabel>
       <ResponsiveContainer width="100%" height="100%">

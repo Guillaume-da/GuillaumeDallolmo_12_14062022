@@ -37,7 +37,7 @@ export const getUserInfo = async (id) => {
       mockedDatas = true;
     }
   } catch (error) {
-    console.log('API unavailable');
+    console.log('API unavailable. Datas coming from mock.');
     mockedDatas = true;
     const mockedResponse = await USER_MAIN_DATA.filter((x) => x.id === +id);
     return {

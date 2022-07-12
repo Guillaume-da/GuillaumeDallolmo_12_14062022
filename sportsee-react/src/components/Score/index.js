@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 /**
  * Allows to show Score component
- * @param {number} scoreValue - number of the score of user
+ * @param {number} scoreValue - number of the score of the user
  *
- * @return Div container containing a title and the user score value in percent, and a piechart for score visualization.
+ * @return Div container containing a title and the user score value in percent, and a piechart made with Recharts for score visualization.
  * @author Guillaume
  * @version 1.0
  */
 const Score = (scoreValue) => {
-  const formatedData = [
+  const customData = [
     { name: 'score', value: scoreValue.scoreValue, stroke: '#FF0000' },
     { name: 'score', value: 1 - scoreValue.scoreValue, stroke: 'transparent' },
   ];
@@ -29,7 +29,7 @@ const Score = (scoreValue) => {
       <ResponsiveContainer width="100%" height="100%" borderRadius="5px">
         <PieChart>
           <Pie
-            data={formatedData}
+            data={customData}
             dataKey="value"
             nameKey="name"
             cx="50%"

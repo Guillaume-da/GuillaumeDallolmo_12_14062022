@@ -15,7 +15,7 @@ import Performance from '../components/Performance';
 /**
  * Allows to show Dashboard page.
  *
- * @return Dashboard page
+ * @return Dashboard page. Contains Message, Sessions, Score, Counter, Activity and Performance components. getUserInfo() is called on loading page and allows to fetch datas in each component.
  * @author Guillaume
  * @version 1.0
  * 
@@ -47,7 +47,6 @@ const Dashboard = () => {
   if (loading) return <Loader />;
 
   if (data?.data) {
-    console.log('data', data);
     const name = data.data.userInfos.firstName;
     const calories = data.data.keyData.calorieCount;
     const proteins = data.data.keyData.proteinCount;
