@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Error/index.js</title>
+    <title>JSDoc: Source: hooks/useFetch.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Error/index.js</h1>
+    <h1 class="page-title">Source: hooks/useFetch.js</h1>
 
     
 
@@ -26,53 +26,42 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react';
-import styled from 'styled-components';
+            <pre class="prettyprint source linenums"><code>import { useEffect, useState } from 'react';
 
 /**
- * Allows to show 404 error
+ * Allows to fetch datas when component is mounted
  *
- * @return 404 page
+ * @param {string} url
+ *
+ * @return data, loading and error
  * @author Guillaume
  * @version 1.0
- * 
  */
-const Error = () => {
-  return (
-    &lt;MainLabel>
-      &lt;TitleLabel>404&lt;/TitleLabel>
-      &lt;ParagraphLabel>
-        Oups! La page que vous demandez n&amp;apos;existe pas.
-      &lt;/ParagraphLabel>
-    &lt;/MainLabel>
-  );
+const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const userData = await url;
+        setData(userData);
+      } catch (err) {
+        setError(true);
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return { data, loading, error };
 };
 
-const MainLabel = styled.main`
-  color: #ff0101;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const TitleLabel = styled.h1`
-  font-size: 96px;
-  font-weight: 700;
-  display: inline-block;
-  margin-top: 145px;
-  text-align: center;
-  width: 100%;
-`;
-
-const ParagraphLabel = styled.p`
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-`
-
-export default Error;
+export default useFetch;
 </code></pre>
         </article>
     </section>

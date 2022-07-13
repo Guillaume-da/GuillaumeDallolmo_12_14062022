@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 /**
  * Allows to show Score component
- * @param {number} scoreValue - number of the score of the user
+ * @param {number} scoreValue - number of the score of the user. The score is fetched from getUserInfo()
  *
  * @return Div container containing a title and the user score value in percent, and a piechart made with Recharts for score visualization.
  * @author Guillaume

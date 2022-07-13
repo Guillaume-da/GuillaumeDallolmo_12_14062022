@@ -15,7 +15,8 @@ let mockedDatas = null;
 
 /**
  * Allows to get first name, last name, age, today score, calories count, protein count, carbohydrate count and lipid count.
- * This function allow to know if API is working.
+ * First function called in Dashboard page when all components are mounted
+ * This function allows to know if API is working. If the API is working, mockedDatas is set to false.
  *
  * @param {number} id - number ID of the user
  *
@@ -27,10 +28,8 @@ let mockedDatas = null;
 export const getUserInfo = async (id) => {
   try {
     const response = await apiBaseUrl.get(`/${id}`);
-    console.log(response.status)
     if (response.status === 200) {
       console.log('API working');
-      
       mockedDatas = false;
       return response.data;
     } else {
@@ -47,7 +46,7 @@ export const getUserInfo = async (id) => {
 };
 
 /**
- * Allows to get activity sessions of the user
+ * Allows to get activity sessions of the user. Needs getUserInfo()
  *
  * @param {number} id - number ID of the user
  *

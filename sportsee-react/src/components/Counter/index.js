@@ -9,7 +9,7 @@ import styled from 'styled-components';
 /**
  * Allows to show calories, protein, carbohydrate, lipid
  *
- * @param {number} value - number of calories, proteins, carbohydrate or lipid
+ * @param {number} value - number of calories, proteins, carbohydrate or lipid. The values are coming from getUserInfo()
  *
  * @return Div containing an icon  and a value. Used for show calories, proteins, carbohydrate or lipid
  * @author Guillaume

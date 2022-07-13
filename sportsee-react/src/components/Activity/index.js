@@ -18,7 +18,7 @@ import useFetch from '../../hooks/useFetch';
 /**
  * Allows to show activity sessions of the user (day, kilogram, calories)
  *
- * @param {number} userId - user ID of the user, coming from getUserInfo() which is called on dashboard page loading
+ * @param {number} userId - user ID of the user, coming from getUserInfo() which is called on dashboard page on loading
  *
  * @return BarChart Component made with Recharts showing user activity. Datas are coming from getUserActivity(), the XAxis represents month days and the YAxis represents the user weight.
  * @author Guillaume
@@ -28,6 +28,14 @@ import useFetch from '../../hooks/useFetch';
 const Activity = (userId) => {
   const { loading, data } = useFetch(getUserActivity(userId.userId));
 
+  /**
+ *
+ * @param {object} payLoad
+ * @param {bool} active
+ *
+ * @return Tooltip on hover for barcharts or null
+ * 
+ */
   function CustomTooltip({ payload, active }) {
     if (active) {
       return (
@@ -40,6 +48,13 @@ const Activity = (userId) => {
     return null;
   }
 
+  /**
+ *
+ * @param {string} tickItem
+ *
+ * @return Date in FR format
+ * 
+ */
   function FormatDate(tickItem) { 
     var options = {day: 'numeric' };
     const formatedDate = new Date(tickItem)

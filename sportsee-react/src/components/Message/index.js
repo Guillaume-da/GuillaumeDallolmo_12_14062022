@@ -7,7 +7,7 @@ import styled from 'styled-components';
  *
  * @param {string} userName - name of user
  *
- * @return Div containing a Welcome message with the name of the user
+ * @return Div containing a Welcome message with the name of the user. The name is fetched from getUserInfo()
  * @author Guillaume
  * @version 1.0
  */

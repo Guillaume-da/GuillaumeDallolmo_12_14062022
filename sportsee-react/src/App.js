@@ -1,6 +1,5 @@
 import { React } from 'react';
 import Dashboard from './pages/Dashboard';
-import HomePage from './pages/Homepage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Error from './components/Error';
@@ -12,7 +11,6 @@ function App() {
     <div className="App">
       <Header />
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<HomePage />} />
         <Route path="/dashboard/:id" element={<Dashboard />} />
         <Route path="*" element={<Error />} />
       </Routes>
