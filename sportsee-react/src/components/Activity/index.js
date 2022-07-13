@@ -41,7 +41,7 @@ const Activity = (userId) => {
   }
 
   function FormatDate(tickItem) { 
-    var options = {/* year: 'numeric',  *//* month: 'long',  */day: 'numeric' };
+    var options = {day: 'numeric' };
     const formatedDate = new Date(tickItem)
     return formatedDate.toLocaleDateString('fr-FR', options)
   }
@@ -83,7 +83,6 @@ const Activity = (userId) => {
               style={{ padding: '0', margin: '0' }}
             />
             <XAxis
-              // domain={['minData', 'maxData']}
               tickMargin={15}
               tickLine={false}
               padding={{ left: 0, right: 0 }}

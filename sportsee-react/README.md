@@ -8,7 +8,7 @@ Open [http://localhost:3000/dashboard/12](http://localhost:3000/dashboard/12)  o
 You can also see the online version here: [https://sportsee-react.netlify.app/dashboard/12](https://sportsee-react.netlify.app/dashboard/12) and here [https://sportsee-react.netlify.app/dashboard/18](https://sportsee-react.netlify.app/dashboard/18)  
 
 # Backend
-This project is made for working with an API. You can find it here: [Backend](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard). Please, note that If you don't use the API, the application will use mocked datas
+This project is made for working with an API. You can find it here: [https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard). Please, note that If you don't use the API, the application will use mocked datas
 
 # Documentation
 You can find the documentation here: [http://127.0.0.1:5500/sportsee-react/docs/index.html](http://127.0.0.1:5500/sportsee-react/docs/index.html) (please launch it with live server)

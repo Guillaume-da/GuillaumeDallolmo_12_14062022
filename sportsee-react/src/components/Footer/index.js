@@ -14,14 +14,19 @@ import styled from 'styled-components';
  * 
  */
 const Footer = () => {
+  const icons = [
+    yogaIcon,
+    swimmingIcon,
+    bikeIcon,
+    weightIcon
+  ]
   return (
     <div>
       <AsideLabel>
         <DivLabel>
-          <ImgLabel src={yogaIcon} alt="" />
-          <ImgLabel src={swimmingIcon} alt="" />
-          <ImgLabel src={bikeIcon} alt="" />
-          <ImgLabel src={weightIcon} alt="" />
+          {icons.map((icon, index) => (
+            <ImgLabel src={`${icon}`} alt="" key={`${icon}-${index}`} />
+          ))}
         </DivLabel>
       </AsideLabel>
       <SpanLabel>Copyright, SportSee 2020</SpanLabel>
