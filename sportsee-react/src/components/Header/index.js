@@ -15,16 +15,20 @@ const Header = () => {
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
   };
-
+  const links = [
+    'Accueil',
+    'Profil',
+    'Réglage',
+    'Communauté'
+  ]
   return (
     <HeaderLabel>
       <ImgLabel src={logo} alt="logo" />
       <NavLabel>
         <UlLabel className={` ${showLinks ? 'show-nav' : 'hide-nav'} `}>
-          <LinkLabel>Accueil</LinkLabel>
-          <LinkLabel>Profil</LinkLabel>
-          <LinkLabel>Réglage</LinkLabel>
-          <LinkLabel>Communauté</LinkLabel>
+          {links.map((link, index) => (
+            <LinkLabel key={`${link}-${index}`}>{link}</LinkLabel>
+          ))}
         </UlLabel>
       </NavLabel>
       <Button onClick={handleShowLinks}>
