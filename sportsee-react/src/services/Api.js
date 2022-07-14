@@ -38,7 +38,7 @@ export const getUserInfo = async (id) => {
   } catch (error) {
     console.log('API unavailable. Datas coming from mock.');
     mockedDatas = true;
-    const mockedResponse = USER_MAIN_DATA.filter((x) => x.id === +id);
+    const mockedResponse = await USER_MAIN_DATA.filter((x) => x.id === +id);
     return {
       data: mockedResponse[0],
     };
@@ -63,7 +63,7 @@ export const getUserActivity = async (id) => {
         data: response[0],
       };
     } else {
-      const response = apiBaseUrl.get(`/${id}/activity`);
+      const response = await apiBaseUrl.get(`/${id}/activity`);
       return response.data;
     }
   } catch (error) {
@@ -89,7 +89,7 @@ export const getUserPerformance = async (id) => {
         data: response[0],
       };
     } else {
-      const response = apiBaseUrl.get(`/${id}/performance`);
+      const response = await apiBaseUrl.get(`/${id}/performance`);
       return response.data;
     }
   } catch (error) {
@@ -117,7 +117,7 @@ export const getUserAverageSessions = async (id) => {
         data: response[0],
       };
     } else {
-      const response = apiBaseUrl.get(`/${id}/average-sessions`);
+      const response = await apiBaseUrl.get(`/${id}/average-sessions`);
       return response.data;
     }
   } catch (error) {
