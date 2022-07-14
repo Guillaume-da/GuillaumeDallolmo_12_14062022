@@ -14,34 +14,41 @@ import styled from 'styled-components';
 import useFetch from '../../hooks/useFetch';
 
 /**
- * Allows to show Performance component
- *
- * @param {number} userId - number ID of the user, coming from getUserInfo() which is called on dashboard page loading
- *
- * @return RadarChart made with Recharts showing cardio, energy, endurance, strength, speed, intensity values. Tha datas are coming from getUserPerformance()
- * @author Guillaume
- * @version 1.0
- */
+* Allows to show Performance component
+*
+* @param {number} userId - number ID of the user, coming from getUserInfo() which is called on dashboard page loading
+*
+* @return RadarChart made with Recharts showing cardio, energy, endurance, strength, speed, intensity values. Tha datas are coming from getUserPerformance()
+* @author Guillaume
+* @version 1.0
+*/
 const Performance = (userId) => {
   const { loading, data } = useFetch(getUserPerformance(userId.userId));
 
   if (loading) return <Loader />;
-
+  
+  /**
+  * Allows to format datas
+  *
+  * @param {object} data
+  *
+  * @return datas
+  */
   // eslint-disable-next-line no-unsafe-optional-chaining
   const datas = [...data?.data.data].reverse();
-  datas.map((item) => {
-    if (item.kind === 1) {
-      item.kind = 'Cardio';
-    } else if (item.kind === 2) {
-      item.kind = 'Energie';
-    } else if (item.kind === 3) {
-      item.kind = 'Endurance';
-    } else if (item.kind === 4) {
-      item.kind = 'Force';
-    } else if (item.kind === 5) {
-      item.kind = 'Vitesse';
-    } else if (item.kind === 6) {
-      item.kind = 'Intensité';
+  datas.map((data) => {
+    if (data.kind === 1) {
+      data.kind = 'Cardio';
+    } else if (data.kind === 2) {
+      data.kind = 'Energie';
+    } else if (data.kind === 3) {
+      data.kind = 'Endurance';
+    } else if (data.kind === 4) {
+      data.kind = 'Force';
+    } else if (data.kind === 5) {
+      data.kind = 'Vitesse';
+    } else if (data.kind === 6) {
+      data.kind = 'Intensité';
     }
     return datas;
   });
